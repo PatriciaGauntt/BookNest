@@ -1,0 +1,13 @@
+<form>
+  <input type="text" placeholder="Search for books" />
+  <button class="btn-primary" type="button">Search</button>
+</form>
+
+<!--app-book [currentBook]="currentBook"></app-book-->
+
+<h2>Search Results : </h2>
+<section class="results">
+  @for(result of searchResults; track $index) {
+    <app-book [currentBook]="result"></app-book>
+  }
+</section>
