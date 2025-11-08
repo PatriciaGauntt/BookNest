@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+.custom-purple {
+  background-color: #5a2a83; /* pick your shade */
+}
+.navbar .nav-link.active {
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: underline 1px solid #ffffff;
+}
+.navbar-brand #nav-icon{
+  height: 2em !important;
+  width: 2em !important;
+}
+

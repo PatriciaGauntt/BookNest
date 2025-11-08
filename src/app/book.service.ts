@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Book } from './book'
 import { homelandBook, goodDogCarlBook, kingArthurBook } from './book';
+import { BookOverview } from './book-overview/book-overview';
 
 const BOOK_ARRAY = [
   homelandBook,
@@ -24,5 +25,15 @@ export class BookService {
 
   getBookById(id: string): Book {
     return kingArthurBook;
+  }
+  submitComment(name: string, comment: string) {
+    console.log(`Submitted comment from name ${name} with comment : ${comment}`);
+  }
+  searchBooks(searchString: string) : Book[] {
+    return [
+      homelandBook,
+      goodDogCarlBook,
+      kingArthurBook,
+    ]
   }
 }

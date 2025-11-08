@@ -1,0 +1,13 @@
+.book-picture {
+  height: 60%;
+  width: 60%;
+}
+.book-overview {
+  width: 250px;
+  display: inline-block;
+  text-align: center;
+}
+
+.book-overview img {
+  display: inline-block;
+}

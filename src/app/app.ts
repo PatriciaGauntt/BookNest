@@ -1,16 +1,9 @@
 import { Component, importProvidersFrom, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-
-import { BookSearch } from './book-search/book-search'
-import { Books } from './books/books'
-import { Book } from "./book/book";
-
+import { RouterOutlet, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Books, BookSearch, Book],
+  imports: [RouterModule, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
-  protected readonly title = signal('BookNest');
-}
+export class App {}

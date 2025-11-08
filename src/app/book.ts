@@ -5,8 +5,9 @@ export interface Book {
   author_last_name : string;
   publication_date : number;
   series_name? : string;
-  location: string;
-  bookshelf: number;
+  location : string;
+  bookcase : number;
+  imagePath? : string;
 }
 
 export const homelandBook: Book = {
@@ -17,7 +18,8 @@ export const homelandBook: Book = {
   publication_date : 1990,
   series_name : "The Dark Elf Trilogy",
   location : "Living Room",
-  bookshelf : 2,
+  bookcase : 2,
+  imagePath : '/images/homeland.jpg',
 }
 export const goodDogCarlBook: Book = {
   id : "abc130",
@@ -27,7 +29,8 @@ export const goodDogCarlBook: Book = {
   publication_date : 1985,
   series_name : "Good Dog Carl Series",
   location : "Office",
-  bookshelf : 2
+  bookcase : 2,
+  imagePath : '/images/goodDogCarl.jpg',
 }
 export const kingArthurBook: Book = {
   id : "abc138",
@@ -36,5 +39,6 @@ export const kingArthurBook: Book = {
   author_last_name : "Lang",
   publication_date : 1993,
   location : "School Room",
-  bookshelf : 2
+  bookcase : 2,
+  imagePath : '/images/kingArthur.jpg',
 }
