@@ -19,8 +19,11 @@ const BOOK_ARRAY = [
   providedIn: 'root',
 })
 export class BookService {
-  getBooks(): Book[] {
-    return BOOK_ARRAY;
+  url = 'http://127.0.0.1:3000/api/v1/books'
+
+  async getBooks(): Promise<Book[]> {
+    const data = await fetch(this.url)
+    return (await data.json()) ?? [];
   }
 
   getBookById(id: string): Book {
@@ -29,11 +32,8 @@ export class BookService {
   submitComment(name: string, comment: string) {
     console.log(`Submitted comment from name ${name} with comment : ${comment}`);
   }
-  searchBooks(searchString: string) : Book[] {
-    return [
-      homelandBook,
-      goodDogCarlBook,
-      kingArthurBook,
-    ]
+  async searchBooks(searchString: string) : Promise<Book[]> {
+    const data = await fetch(this.url)
+    return (await data.json()) ?? [];
   }
 }

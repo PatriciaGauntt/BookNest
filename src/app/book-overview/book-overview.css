@@ -3,9 +3,16 @@
   width: 60%;
 }
 .book-overview {
+  margin-left: 0.75em;
+  margin-right: 0.75em;
+  margin-bottom: 1.75em;
+  padding-top: 1.5em;
+  padding-bottom: 0.5em;
   width: 250px;
   display: inline-block;
   text-align: center;
+  background-color: #f4e8fc;
+  border-radius: 12px;
 }
 
 .book-overview img {

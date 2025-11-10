@@ -17,9 +17,10 @@ export class BookSearch {
   constructor() {
     //this.searchResults = this.bookService.getBooks();
   }
-  searchBooks(searchString: string) {
-    this.searchResults = this.bookService.searchBooks(searchString);
+  async searchBooks(searchString: string) {
+    this.searchResults = await this.bookService.searchBooks(searchString);
   }
 
-  currentBook: BookType = homelandBook;
+  currentBook: BookType  = homelandBook;
+
 }
