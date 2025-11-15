@@ -16,6 +16,9 @@ export class BookSearch {
   searchResults: BookType[] = [];
   constructor() {
     //this.searchResults = this.bookService.getBooks();
+    this.bookService.getBooks().then((books) => {
+      this.searchResults = books;
+    });
   }
   async searchBooks(searchString: string) {
     this.searchResults = await this.bookService.searchBooks(searchString);
