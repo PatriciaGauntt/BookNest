@@ -14,7 +14,7 @@ export class BookDetails {
   bookService: BookService = inject(BookService);
   route: ActivatedRoute = inject(ActivatedRoute);
   bookId: string = '';
-  currentBook: BookType;
+  currentBook!: BookType;
 
   commentForm = new FormGroup({
     name: new FormControl(''),
@@ -23,7 +23,9 @@ export class BookDetails {
 
   constructor() {
     this.bookId = this.route.snapshot.params['id'];
-    this.currentBook = this.bookService.getBookById(this.bookId);
+    this.bookService.getBookById(this.bookId).then((book) => {
+      this.currentBook = book
+    });
   }
   submitComment() {
     this.bookService.submitComment(this.commentForm.value.name ?? '', this.commentForm.value.comment ?? '');

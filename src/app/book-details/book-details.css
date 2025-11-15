@@ -1,0 +1,25 @@
+.divider {
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    oklch(63.32% 0.24 31.68) 0%,   /* orange-red */
+    oklch(69.02% 0.277 332.77) 50%, /* vivid-pink */
+    oklch(53.18% 0.28 296.97) 100%  /* electric-violet */
+  );
+  align-self: stretch;
+  margin: 0 20px;
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.15);
+}
+
+.book-details-container {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  background-color: #f5ecff;
+  border-radius: 12px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}

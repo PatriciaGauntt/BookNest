@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import { Book as BookType} from '../book'
 import { BookDetails } from '../book-details/book-details';
 import { BookService } from '../book.service';
-import { homelandBook, goodDogCarlBook, kingArthurBook } from '../book';
 import { BookOverview } from "../book-overview/book-overview";
 
 @Component({
@@ -23,7 +22,4 @@ export class BookSearch {
   async searchBooks(searchString: string) {
     this.searchResults = await this.bookService.searchBooks(searchString);
   }
-
-  currentBook: BookType  = homelandBook;
-
 }
