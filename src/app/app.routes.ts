@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 import { BookSearch } from './book-search/book-search';
 import { BookDetails } from './book-details/book-details'
+import { BookEdit } from './book-edit/book-edit'
+import { BookCreate } from './book-create/book-create';
 
 export const routes: Routes = [
   {
@@ -9,8 +11,19 @@ export const routes: Routes = [
     title: 'Book Search',
   },
   {
+    path: 'books/new/',
+    component: BookEdit,
+    title: 'Book Edit',
+  },
+  {
     path: 'books/:id',
     component: BookDetails,
     title: 'Book Details',
-  }
+  },
+    {
+    path: 'books/edit/:id',
+    component: BookEdit,
+    title: 'Book Edit',
+  },
+
 ];

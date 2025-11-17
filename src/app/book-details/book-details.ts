@@ -1,17 +1,18 @@
 import { Component, inject, input } from '@angular/core';
-import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
-import { Book as BookType, homelandBook } from '../book'
-import { ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Book as BookType } from '../book'
+import { ActivatedRoute, RouterModule, Router } from '@angular/router';
 import { BookService } from '../book.service';
 
 @Component({
   selector: 'app-book-details',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterModule],
   templateUrl: './book-details.html',
   styleUrl: './book-details.css',
 })
 export class BookDetails {
   bookService: BookService = inject(BookService);
+  router: Router = inject(Router);
   route: ActivatedRoute = inject(ActivatedRoute);
   bookId: string = '';
   currentBook!: BookType;
@@ -29,6 +30,10 @@ export class BookDetails {
   }
   submitComment() {
     this.bookService.submitComment(this.commentForm.value.name ?? '', this.commentForm.value.comment ?? '');
+  };
+  deleteBook() {
+    this.bookService.deleteBook(this.currentBook.id);
+    this.router.navigate(['']);
   };
 }
 

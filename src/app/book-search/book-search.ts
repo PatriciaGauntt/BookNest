@@ -1,12 +1,13 @@
 import { Component, inject } from '@angular/core';
-import { Book as BookType} from '../book'
+import { Book as BookType} from '../book';
+import { RouterModule } from '@angular/router';
 import { BookDetails } from '../book-details/book-details';
 import { BookService } from '../book.service';
 import { BookOverview } from "../book-overview/book-overview";
 
 @Component({
   selector: 'app-book-search',
-  imports: [BookOverview, BookOverview],
+  imports: [BookOverview, BookOverview, RouterModule],
   templateUrl: './book-search.html',
   styleUrl: './book-search.css',
 })

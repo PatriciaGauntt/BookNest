@@ -3,5 +3,5 @@
 <div><span>Title :</span> {{currentBook().title}} </div>
 <div><span>Author :</span> {{currentBook().author_first_name}} {{currentBook().author_last_name}}</div>
 
-<a [routerLink]="['/books', currentBook().id]">Learn More...</a>
+<a class="btn btn-details me-4" [routerLink]="['/books', currentBook().id]">Learn More...</a>
 </div>

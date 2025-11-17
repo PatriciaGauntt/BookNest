@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Book } from './book'
-import { homelandBook, goodDogCarlBook, kingArthurBook } from './book';
+import { Book, CreateBook } from './book'
 import { BookOverview } from './book-overview/book-overview';
 @Injectable({
   providedIn: 'root',
@@ -26,5 +25,24 @@ export class BookService {
     console.error(`---> ${searchString}`);
     const data = await fetch(`${this.url}?search=${searchString}`);
     return (await data.json()) ?? [];
+  }
+  async deleteBook(id: string): Promise<void> {
+    await fetch(`${this.url}/${id}`, {method: 'DELETE'});
+  }
+  async updateBook(id: string, bookData: Book) {
+    await fetch(`${this.url}/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(bookData),
+    });
+  }
+  async createBook(book: CreateBook) {
+    const response = await fetch(this.url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(book),
+    });
+
+    return (await response.json()) ?? {};
   }
 }
