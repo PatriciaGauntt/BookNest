@@ -53,7 +53,7 @@
   <div class="divider"></div>
 
   <img class="book-picture"
-    [src]="currentBook.imagePath ?? '/images/detailsBookImage.jpg'">
+    [src]="currentBook.imagePath || '/images/detailsBookImage.jpg'">
 
 </div>
 <button class="btn btn-details" (click)="saveBook()">Update</button>

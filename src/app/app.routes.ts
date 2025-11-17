@@ -11,9 +11,9 @@ export const routes: Routes = [
     title: 'Book Search',
   },
   {
-    path: 'books/new/',
-    component: BookEdit,
-    title: 'Book Edit',
+    path: 'books/new',
+    component: BookCreate,
+    title: 'Book Create',
   },
   {
     path: 'books/:id',

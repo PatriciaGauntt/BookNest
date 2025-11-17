@@ -17,7 +17,7 @@ export class BookCreate {
       title: new FormControl(''),
       author_first_name: new FormControl(''),
       author_last_name: new FormControl(''),
-      publication_year: new FormControl(0),
+      publication_year: new FormControl(1900),
       series_name: new FormControl(''),
       location: new FormControl(''),
       bookcase: new FormControl(0),

@@ -34,6 +34,7 @@
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 20px;
+  padding-right: 20px;
 }
 
 .edit form {
@@ -86,4 +87,23 @@
 .btn-details:hover {
   background-color: #de1bb0;
   color: #4055e0; /* slightly darker hover color */
+}
+
+.create-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* keeps the box centered */
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* NEW: left-align everything inside the lavender box */
+.book-details-container {
+  text-align: left;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #f5ecff inset !important;
+  box-shadow: 0 0 0 1000px #f0f0f1 inset !important;
+  -webkit-text-fill-color: #000000 !important;
 }

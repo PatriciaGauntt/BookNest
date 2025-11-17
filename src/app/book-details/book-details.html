@@ -16,7 +16,7 @@
 
 
   <img class="book-picture"
-    [src]="currentBook.imagePath ?? '/images/detailsBookImage.jpg'">
+    [src]="currentBook.imagePath || '/images/detailsBookImage.jpg'">
 </div>
 
 <form [formGroup]="commentForm" (submit)="submitComment()">
