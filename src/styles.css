@@ -1,5 +1,5 @@
 .custom-purple {
-  background-color: #5a2a83; /* pick your shade */
+  background-color: #5a2a83;
 }
 .navbar .nav-link.active {
   color: #ffffff;
@@ -42,7 +42,6 @@
 }
 
 .form-group {
-  /*display: flex;*/
   align-items: flex-start;
   gap: 0.75rem;
 }
@@ -75,7 +74,7 @@
 
 .btn-delete:hover {
   background-color: #ff3b69;
-  color: #010c0b; /* slightly darker hover color */
+  color: #010c0b;
 }
 
 .btn-details {
@@ -86,18 +85,17 @@
 
 .btn-details:hover {
   background-color: #de1bb0;
-  color: #4055e0; /* slightly darker hover color */
+  color: #4055e0;
 }
 
 .create-container {
   display: flex;
   flex-direction: column;
-  align-items: center;  /* keeps the box centered */
+  align-items: center;
   justify-content: center;
   margin-top: 20px;
 }
 
-/* NEW: left-align everything inside the lavender box */
 .book-details-container {
   text-align: left;
 }
@@ -106,4 +104,12 @@ input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px #f5ecff inset !important;
   box-shadow: 0 0 0 1000px #f0f0f1 inset !important;
   -webkit-text-fill-color: #000000 !important;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  margin-top: 7px;
 }

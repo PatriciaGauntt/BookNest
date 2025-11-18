@@ -16,7 +16,7 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 .home-picture {
   width: 100%;
@@ -29,8 +29,8 @@ h1 {
 
 .book-home-container {
   display: flex;
-  justify-content: center; /* center content horizontally */
-  align-items: center;     /* center vertically */
+  justify-content: center;
+  align-items: center;
   background-color: #f5ecff;
   border-radius: 20px;
   padding: 30px;
@@ -38,7 +38,7 @@ h1 {
 }
 
 .home-buttons {
-  margin-top: 25px;
+  margin-top: 5px;
   display: flex;
   justify-content: center;
   gap: 30px;
