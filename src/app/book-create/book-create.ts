@@ -6,7 +6,7 @@ import { BookService } from '../book.service';
 
 @Component({
   selector: 'app-book-create',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterModule],
   templateUrl: './book-create.html',
   styleUrl: './book-create.css',
 })

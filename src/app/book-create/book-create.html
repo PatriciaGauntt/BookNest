@@ -1,5 +1,5 @@
 <div class="create-container">
-<h3>Add a book to Our BookNest :</h3>
+<h3>Add a book to Our BookNest</h3>
 <div class="book-details-container">
 
   <div class="edit">
@@ -51,5 +51,11 @@
   </div>
 </div>
 
-<button class="btn btn-details" (click)="createBook()">Save</button>
+
+
+<div class="home-buttons">
+  <button class="btn btn-details" (click)="createBook()">Save</button>
+  <a class="btn btn-delete" [routerLink]="['/books/search']">Cancel</a>
+</div>
+
 

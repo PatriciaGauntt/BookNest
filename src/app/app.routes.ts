@@ -3,10 +3,16 @@ import { BookSearch } from './book-search/book-search';
 import { BookDetails } from './book-details/book-details'
 import { BookEdit } from './book-edit/book-edit'
 import { BookCreate } from './book-create/book-create';
+import { BookHome } from './book-home/book-home';
 
 export const routes: Routes = [
   {
     path: '',
+    component: BookHome,
+    title: 'Book Home',
+  },
+  {
+    path: 'books/search',
     component: BookSearch,
     title: 'Book Search',
   },

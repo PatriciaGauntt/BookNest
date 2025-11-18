@@ -27,10 +27,10 @@ export class BookEdit {
       author_first_name: new FormControl(this.currentBook.author_first_name),
       author_last_name: new FormControl(this.currentBook.author_last_name),
       publication_year: new FormControl(this.currentBook.publication_year),
-      series_name: new FormControl(this.currentBook.series_name),
+      series_name: new FormControl(this.currentBook.series_name ?? ''),
       location: new FormControl(this.currentBook.location),
       bookcase: new FormControl(this.currentBook.bookcase),
-      imagePath: new FormControl(this.currentBook.imagePath),
+      imagePath: new FormControl(this.currentBook.imagePath ?? ''),
     });
     });
   }
