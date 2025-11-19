@@ -11,7 +11,8 @@ export class BookHome implements OnInit {
 
   images = [
     '/images/house-made-books.jpg',
-    '/images/house-made-books2.jpg'
+    '/images/house-made-books2.jpg',
+    '/images/house-made-books3.jpg',
   ];
 
   randomHomeImage = '';

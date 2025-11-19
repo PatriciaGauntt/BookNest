@@ -1,0 +1,6 @@
+.edit-buttons {
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  gap: 200px;
+}

@@ -1,1 +1,47 @@
-<router-outlet />
+<nav class="navbar navbar-expand-md navbar-dark custom-purple mb-4 border-bottom border-light border-2">
+
+  <div id="nav-container" class="container-fluid">
+    <a class="navbar-brand">
+      <img id="nav-icon" src="purple_book_icon.ico">
+    </a>
+
+      <!-- collapse -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navBarCollapse"
+      aria-controls="navBarCollapse" aria-expanded="false" aria-label="Toggle nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navBarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/books/search" routerLinkActive="active-link">Book Listing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/books/new" routerLinkActive="active-link">Add Book</a>
+      </li>
+        <!---li class="nav-item">
+          <a class="nav-link" href="resources.html">Resources</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li--->
+      </ul>
+    </div>
+    <!-- End of #nav-item-list-->
+  </div>
+  <!-- End of #nav-container-->
+</nav>
+
+<main class="container">
+  <div class="bg-light p-5 rounded" id="main">
+    <router-outlet></router-outlet >
+  </div>
+</main>
+
+
+

@@ -7,8 +7,8 @@ import { BookOverview } from './book-overview/book-overview';
 export class BookService {
   url = '/api/v1/booklists';
 
-  async getBooks(): Promise<Book[]> {
-    const data = await fetch(this.url)
+  async getBooks(skip: number, limit: number): Promise<Book[]> {
+    const data = await fetch(`${this.url}?skip=${skip}&limit=${limit}`);
     return (await data.json()) ?? [];
   }
 

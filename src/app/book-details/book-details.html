@@ -8,7 +8,7 @@
     <div><span>Publication Year :</span> {{ currentBook.publication_year }} </div>
     <div><span>Book Location :</span> {{ currentBook.location }} </div>
     <div><span>Book Case # :</span> {{ currentBook.bookcase }} </div>
-    <a class="btn btn-edit me-4" [routerLink]="['/books/edit',currentBook.id]">Edit</a>
+    <a class="btn btn-edit me-5" [routerLink]="['/books/edit',currentBook.id]">Edit</a>
     <button class="btn btn-delete" (click)="deleteBook()">Delete</button>
   </div>
 

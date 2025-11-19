@@ -1,8 +1,10 @@
-<h1>Search Our BookNest</h1>
+<h2>Search Our BookNest</h2>
 <form (submit)="searchBooks(searchTerm.value); $event.preventDefault()">
-  <input type="text" placeholder="Search for books" #searchTerm />
-  <button class="btn-primary" type="submit">Search</button>
-  <a class="btn btn-edit" [routerLink]="['/books/new']">New Book</a>
+  <input class="form-control d-inline w-25 border border-1 border-dark d-inline" type="text" placeholder="Search for books" #searchTerm />
+  <button class="btn btn-primary ms-1" type="submit">Search</button>
+  <div class="inline-float-right">
+    <a class="btn btn-details" [routerLink]="['/books/new']">New Book</a>
+  </div>
 </form>
 <br>
 
@@ -10,4 +12,19 @@
   @for(result of searchResults; track $index) {
     <app-book-overview [currentBook]="result"></app-book-overview>
   }
+<div class="d-flex justify-content-center mt-3">
+  <button (click)="previousPage()"
+          class="btn btn-secondary me-5"
+          id="previous"
+          [disabled]="previousDisabled ? true : null">
+    Previous
+  </button>
+
+  <button (click)="nextPage()"
+          class="btn btn-secondary ms-5" 
+          id="next"
+          [disabled]="nextDisabled ? true : null">
+    Next
+  </button>
+</div>
 </section>

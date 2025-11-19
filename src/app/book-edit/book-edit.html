@@ -56,4 +56,9 @@
     [src]="currentBook.imagePath || '/images/detailsBookImage.jpg'">
 
 </div>
-<button class="btn btn-details" (click)="saveBook()">Update</button>
+
+
+<div class="edit-buttons">
+  <button class="btn btn-edit" (click)="saveBook()">Update</button>
+  <a class="btn btn-delete" [routerLink]="['/books/search']">Cancel</a>
+</div>
