@@ -21,5 +21,59 @@ h2 {
 .inline-float-right {
   display: inline;
   float: right;
-  margin-right: 7em;
+  margin-right: 1em;
 }
+.icon-link {
+  text-decoration: none;
+  font-size: 1.0rem; /* slightly larger for visibility */
+  cursor: pointer;
+}
+
+.icon-link:hover {
+  opacity: 0.7;
+}
+.results table {
+  font-size: 0.90rem;   /* adjust as needed: 0.9, 0.8, etc. */
+}
+.results table td,
+.results table th {
+  padding: 4px 8px;  /* default is 12px */
+  font-size: 0.8rem;
+}
+table.table.table-striped > tbody > tr:nth-of-type(odd) > td {
+  background-color: #f5ecff !important;
+}
+table.table.table-striped > tbody > tr:hover > td {
+  background-color: #f8b3e3 !important;
+}
+.sort-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sort-arrow {
+  border: none;
+  background: transparent;
+  padding: 0 0px;
+  cursor: pointer;
+  color: #de1bb0 ;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.sort-arrow i {
+  font-size: 1rem;
+  line-height: 0.75;
+  display: inline-block;
+}
+
+/* style for active arrow (when that column+direction is selected) */
+.sort-arrow i.active {
+  color: #5f24a2;
+   /* purple */
+}
+
+/* optional hover */
+.sort-arrow:hover i { color: #0d6efd; }

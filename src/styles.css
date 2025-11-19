@@ -116,3 +116,6 @@ input:-webkit-autofill {
   justify-content: center;
   margin-top: 7px;
 }
+table.table.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #f5ecff;
+}

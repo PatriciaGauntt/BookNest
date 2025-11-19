@@ -1,30 +1,102 @@
 <h2>Search Our BookNest</h2>
+
 <form (submit)="searchBooks(searchTerm.value); $event.preventDefault()">
-  <input class="form-control d-inline w-25 border border-1 border-dark d-inline" type="text" placeholder="Search for books" #searchTerm />
+  <input class="form-control d-inline w-25 border border-1 border-dark"
+         type="text"
+         placeholder="Search for books"
+         #searchTerm />
+
   <button class="btn btn-primary ms-1" type="submit">Search</button>
+
   <div class="inline-float-right">
     <a class="btn btn-details" [routerLink]="['/books/new']">New Book</a>
   </div>
 </form>
+
 <br>
 
 <section class="results">
-  @for(result of searchResults; track $index) {
-    <app-book-overview [currentBook]="result"></app-book-overview>
-  }
-<div class="d-flex justify-content-center mt-3">
-  <button (click)="previousPage()"
-          class="btn btn-secondary me-5"
-          id="previous"
-          [disabled]="previousDisabled ? true : null">
-    Previous
-  </button>
 
-  <button (click)="nextPage()"
-          class="btn btn-secondary ms-5" 
-          id="next"
-          [disabled]="nextDisabled ? true : null">
-    Next
-  </button>
-</div>
+  <table class="table table-hover table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>
+          <div class="sort-container">
+            <span>Title</span>
+              <button class="sort-arrow" (click)="sortByDirection('title', 'asc')" aria-label="Sort title ascending">
+                <i class="bi bi-caret-up-fill" [class.active]="sortColumn === 'title' && sortDirection === 'asc'"></i>
+              </button>
+              <button class="sort-arrow" (click)="sortByDirection('title', 'desc')" aria-label="Sort title descending">
+                <i class="bi bi-caret-down-fill" [class.active]="sortColumn === 'title' && sortDirection === 'desc'"></i>
+              </button>
+          </div>
+        </th>
+        <th>
+          <div class="sort-container">
+            <span>Author Last</span>
+              <button class="sort-arrow" (click)="sortByDirection('author_last_name', 'asc')" aria-label="Sort author_last_name ascending">
+                <i class="bi bi-caret-up-fill" [class.active]="sortColumn === 'author_last_name' && sortDirection === 'asc'"></i>
+              </button>
+              <button class="sort-arrow" (click)="sortByDirection('author_last_name', 'desc')" aria-label="Sort author_last_name descending">
+                <i class="bi bi-caret-down-fill" [class.active]="sortColumn === 'author_last_name' && sortDirection === 'desc'"></i>
+              </button>
+          </div>
+        </th>
+        <th>
+          <div class="sort-container">
+            <span>Author First</span>
+              <button class="sort-arrow" (click)="sortByDirection('author_first_name', 'asc')" aria-label="Sort author_first_name ascending">
+                <i class="bi bi-caret-up-fill" [class.active]="sortColumn === 'author_first_name' && sortDirection === 'asc'"></i>
+              </button>
+              <button class="sort-arrow" (click)="sortByDirection('author_first_name', 'desc')" aria-label="Sort author_first_name descending">
+                <i class="bi bi-caret-down-fill" [class.active]="sortColumn === 'author_first_name' && sortDirection === 'desc'"></i>
+              </button>
+          </div>
+        </th>
+        <th>
+          <div class="sort-container">
+            <span>Series</span>
+              <button class="sort-arrow" (click)="sortByDirection('series_name', 'asc')" aria-label="Sort series_name ascending">
+                <i class="bi bi-caret-up-fill" [class.active]="sortColumn === 'series_name' && sortDirection === 'asc'"></i>
+              </button>
+              <button class="sort-arrow" (click)="sortByDirection('series_name', 'desc')" aria-label="Sort series_name descending">
+                <i class="bi bi-caret-down-fill" [class.active]="sortColumn === 'series_name' && sortDirection === 'desc'"></i>
+              </button>
+          </div>
+        </th>
+        <th>Details</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let result of sortedResults">
+        <td>{{ result.title }}</td>
+        <td>{{ result.author_last_name }}</td>
+        <td>{{ result.author_first_name }}</td>
+        <td>{{ result.series_name }}</td>
+<td class="text-center">
+  <a [routerLink]="['/books', result.id]" class="icon-link">
+    🔍
+  </a>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="d-flex justify-content-center mt-3">
+    <button (click)="previousPage()"
+            class="btn btn-secondary me-5"
+            id="previous"
+            [disabled]="previousDisabled">
+      Previous
+    </button>
+
+    <button (click)="nextPage()"
+            class="btn btn-secondary ms-5"
+            id="next"
+            [disabled]="nextDisabled">
+      Next
+    </button>
+  </div>
+
 </section>
