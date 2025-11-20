@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Book as BookType } from '../book';
 import { RouterModule } from '@angular/router';
 import { BookService } from '../book.service';
+import { FormsModule } from '@angular/forms';
 
 export type SortableBookFields =
   'title' |
@@ -12,7 +13,7 @@ export type SortableBookFields =
 
 @Component({
   selector: 'app-book-search',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './book-search.html',
   styleUrl: './book-search.css',
 })
@@ -20,14 +21,19 @@ export class BookSearch {
 
   bookService: BookService = inject(BookService);
 
+  masterBooks: BookType[] = [];
+
   fullResults: BookType[] = [];
 
   pagedResults: BookType[] = [];
 
+  allLocations: string[] = [];
+  selectedLocation: string = '';
+
   sortColumn: SortableBookFields | '' = '';
   sortDirection: 'asc' | 'desc' = 'asc';
 
-  booksPerPage = 20;
+  booksPerPage = 10;
   currentPage = 0;
   previousDisabled = true;
   nextDisabled = false;
@@ -37,36 +43,53 @@ export class BookSearch {
   }
 
   async loadAllBooks() {
-    this.fullResults = await this.bookService.getBooks(0, 5000);
-    this.applySorting();
-    this.applyPaging();
+    this.masterBooks = await this.bookService.getBooks(0, 5000);
+    this.extractLocations();
+    this.applyFilters();   // applies sort + paging too
+  }
+
+  extractLocations() {
+    this.allLocations = [...new Set(this.masterBooks.map(b => b.location))].sort();
   }
 
   async searchBooks(searchString: string) {
-    this.fullResults = await this.bookService.searchBooks(searchString);
+    // Search always starts from the FULL set
+    const filtered = this.masterBooks.filter(b =>
+      b.title.toLowerCase().includes(searchString.toLowerCase())
+    );
+
+    this.fullResults = filtered;
     this.currentPage = 0;
+
     this.applySorting();
     this.applyPaging();
   }
 
-  sortBy(column: SortableBookFields) {
-    if (this.sortColumn === column) {
-      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
-    } else {
-      this.sortColumn = column;
-      this.sortDirection = 'asc';
+  applyFilters() {
+    // 1️⃣ Always start from masterBooks
+    let list = [...this.masterBooks];
+
+    // 2️⃣ Apply location filter
+    if (this.selectedLocation) {
+      list = list.filter(b => b.location === this.selectedLocation);
     }
 
+    this.fullResults = list;
+
+    // 3️⃣ Reset paging on filter
+    this.currentPage = 0;
+
+    // 4️⃣ Re-sort and re-page
     this.applySorting();
     this.applyPaging();
   }
 
   sortByDirection(column: SortableBookFields, direction: 'asc' | 'desc') {
-  this.sortColumn = column;
-  this.sortDirection = direction;
-  this.applySorting();
-  this.applyPaging();
-}
+    this.sortColumn = column;
+    this.sortDirection = direction;
+    this.applySorting();
+    this.applyPaging();
+  }
 
   applySorting() {
     if (!this.sortColumn) return;
@@ -83,15 +106,6 @@ export class BookSearch {
     });
   }
 
-  getSortIcon(column: SortableBookFields): string {
-    if (this.sortColumn !== column) {
-      return 'bi-arrow-down-up';
-    }
-    return this.sortDirection === 'asc'
-      ? 'bi-caret-up-fill'
-      : 'bi-caret-down-fill';
-  }
-
   applyPaging() {
     const start = this.currentPage * this.booksPerPage;
     const end = start + this.booksPerPage;
@@ -104,7 +118,6 @@ export class BookSearch {
 
   nextPage() {
     if (this.nextDisabled) return;
-
     this.currentPage++;
     this.applyPaging();
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -112,7 +125,6 @@ export class BookSearch {
 
   previousPage() {
     if (this.previousDisabled) return;
-
     this.currentPage--;
     this.applyPaging();
     window.scrollTo({ top: 0, behavior: 'smooth' });

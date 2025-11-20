@@ -1,16 +1,28 @@
 <h2>Search Our BookNest</h2>
 
 <form (submit)="searchBooks(searchTerm.value); $event.preventDefault()">
-  <input class="form-control d-inline w-25 border border-1 border-dark"
+
+      <input class="form-control d-inline w-25 border border-1 border-dark"
          type="text"
          placeholder="Search for books"
          #searchTerm />
 
-  <button class="btn btn-primary ms-1" type="submit">Search</button>
+      <button class="btn btn-primary ms-1" type="submit">Search</button>
 
-  <div class="inline-float-right">
-    <a class="btn btn-details" [routerLink]="['/books/new']">New Book</a>
-  </div>
+    <div class="inline-float-right">
+      <select class="form-select w-auto border-dark"
+              [(ngModel)]="selectedLocation"
+              (change)="applyFilters()"
+              name="locationFilter">
+        <option value="">All Locations</option>
+        <option *ngFor="let loc of allLocations" [value]="loc">
+          {{ loc }}
+        </option>
+      </select>
+    </div>
+    <!---div class="inline-float-right">
+      <a class="btn btn-details" [routerLink]="['/books/new']">New Book</a>
+    </div--->
 </form>
 
 <br>

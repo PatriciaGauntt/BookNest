@@ -75,3 +75,10 @@ table.table.table-striped > tbody > tr:hover > td {
 
 .sort-arrow:hover i {
   color: #0d6efd; }
+.filter-container {
+  margin: 0 20px;   /* adds space on both sides */
+}
+
+.filter-container select {
+  min-width: 180px;
+}
