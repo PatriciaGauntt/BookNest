@@ -69,16 +69,16 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let result of sortedResults">
+      <tr *ngFor="let result of pagedResults">
         <td>{{ result.title }}</td>
         <td>{{ result.author_last_name }}</td>
         <td>{{ result.author_first_name }}</td>
         <td>{{ result.series_name }}</td>
-<td class="text-center">
-  <a [routerLink]="['/books', result.id]" class="icon-link">
-    🔍
-  </a>
-</td>
+        <td class="text-center">
+          <a [routerLink]="['/books', result.id]" class="icon-link">
+            🔍
+          </a>
+        </td>
       </tr>
     </tbody>
   </table>
