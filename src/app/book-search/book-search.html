@@ -2,7 +2,7 @@
 
 <form (submit)="searchBooks(searchTerm.value); $event.preventDefault()">
 
-      <input class="form-control d-inline w-25 border border-1 border-dark"
+      <input class="form-control d-inline w-25 border border-1 border-secondary"
          type="text"
          placeholder="Search for books"
          #searchTerm />
@@ -10,7 +10,7 @@
       <button class="btn btn-primary ms-1" type="submit">Search</button>
 
     <div class="inline-float-right">
-      <select class="form-select w-auto border-dark"
+      <select class="form-select w-auto border-secondary"
               [(ngModel)]="selectedLocation"
               (change)="applyFilters()"
               name="locationFilter">

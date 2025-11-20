@@ -9,7 +9,7 @@
     <div><span>Book Location :</span> {{ currentBook.location }} </div>
     <div><span>Book Case # :</span> {{ currentBook.bookcase }} </div>
     <a class="btn btn-edit me-5 mt-2" [routerLink]="['/books/edit',currentBook.id]">Edit</a>
-    <button class="btn btn-delete mt-2" (click)="deleteBook()">Delete</button>
+    <button class="btn btn-delete mt-2" (click)="confirmDelete()">Delete</button>
   </div>
 
 <div class="divider"></div>

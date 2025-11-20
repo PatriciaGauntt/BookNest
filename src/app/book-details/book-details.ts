@@ -31,9 +31,13 @@ export class BookDetails {
   submitComment() {
     this.bookService.submitComment(this.commentForm.value.name ?? '', this.commentForm.value.comment ?? '');
   };
-  deleteBook() {
-    this.bookService.deleteBook(this.currentBook.id);
-    this.router.navigate(['']);
+  async confirmDelete() {
+  const ok = confirm(`Are you sure you want to delete "${this.currentBook.title}"?`);
+
+  if (!ok) return;
+
+  await this.bookService.deleteBook(this.bookId);
+  this.router.navigate(['/books/search']);
   };
 }
 
