@@ -4,6 +4,7 @@ import { BookDetails } from './book-details/book-details'
 import { BookEdit } from './book-edit/book-edit'
 import { BookCreate } from './book-create/book-create';
 import { BookHome } from './book-home/book-home';
+import { BookOverview } from './book-overview/book-overview';
 
 export const routes: Routes = [
   {
@@ -15,6 +16,11 @@ export const routes: Routes = [
     path: 'books/search',
     component: BookSearch,
     title: 'Book Search',
+  },
+    {
+    path: 'books/overview',
+    component: BookOverview,
+    title: 'Book Overview',
   },
   {
     path: 'books/new',

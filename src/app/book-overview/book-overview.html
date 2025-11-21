@@ -1,7 +1,19 @@
 <div class="book-overview">
-<img class="book-picture" src="{{currentBook().imagePath || `/images/emptyImageBook.jpg`}}">
-<div><span>Title :</span> {{currentBook().title}} </div>
-<div><span>Author :</span> {{currentBook().author_first_name}} {{currentBook().author_last_name}}</div>
+  <h1><em>Our BookNest</em></h1>
+  <img class="overview-picture" src="/images/map.jpg">
 
-<a class="btn btn-details me-4" [routerLink]="['/books', currentBook().id]">Learn More...</a>
+  <p class="overview-text">
+    <strong>Welcome to <span class="overview-highlight">Our BookNest</span> —a cozy digital home for every book in our house.</strong>
+    Each room on the map above represents a real space in our home, and every bookshelf has been
+    carefully numbered so you can always find exactly where a book lives. To locate a book,
+    simply look up its room and shelf number. The shelves are counted clockwise, beginning from
+    the front of the house—our “street side”—as shown on the map. With this simple system,
+    exploring our collection becomes a gentle wander through our personal library. Enjoy your
+    time in Our BookNest!
+  </p>
+</div>
+
+<div class="overview-buttons">
+  <a class="btn btn-details me-4" [routerLink]="['/books/search']">Search Our BookNest</a>
+  <a class="btn btn-edit" [routerLink]="['/books/new']">Add A New Book</a>
 </div>
