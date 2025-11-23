@@ -45,7 +45,7 @@ export class BookSearch {
   async loadAllBooks() {
     this.masterBooks = await this.bookService.getBooks(0, 5000);
     this.extractLocations();
-    this.applyFilters();   // applies sort + paging too
+    this.applyFilters();
   }
 
   extractLocations() {
@@ -53,7 +53,6 @@ export class BookSearch {
   }
 
   async searchBooks(searchString: string) {
-    // Search always starts from the FULL set
     const filtered = this.masterBooks.filter(b =>
       b.title.toLowerCase().includes(searchString.toLowerCase())
     );
@@ -66,20 +65,16 @@ export class BookSearch {
   }
 
   applyFilters() {
-    // 1️⃣ Always start from masterBooks
     let list = [...this.masterBooks];
 
-    // 2️⃣ Apply location filter
     if (this.selectedLocation) {
       list = list.filter(b => b.location === this.selectedLocation);
     }
 
     this.fullResults = list;
 
-    // 3️⃣ Reset paging on filter
     this.currentPage = 0;
 
-    // 4️⃣ Re-sort and re-page
     this.applySorting();
     this.applyPaging();
   }

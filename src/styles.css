@@ -120,9 +120,9 @@ table.table.table-striped > tbody > tr:nth-of-type(odd) {
   background-color: #f5ecff;
 }
 .not-required-note {
-  font-size: 0.8rem;   /* small text */
-  color: #6c757d;       /* muted gray */
-  margin-left: 20px;    /* spacing from the buttons */
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-left: 20px;
   font-style: italic;
 }
 
