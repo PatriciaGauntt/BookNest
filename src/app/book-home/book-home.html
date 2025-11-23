@@ -1,11 +1,11 @@
 <div class="home-container">
-<h1><em>Our BookNest</em></h1>
+<h1 class="pacifico-heading"><em>Our BookNest</em></h1>
   <div class="book-home-container">
-<img class="home-picture" [src]="randomHomeImage">
+<img class="rounded-shadow-img home-picture"  [src]="randomHomeImage">
   </div>
 </div>
 
-<div class="home-buttons">
+<div class="button-row home-buttons">
   <a class="btn btn-details me-4" [routerLink]="['/books/search']">Search Our BookNest</a>
   <a class="btn btn-edit" [routerLink]="['/books/new']">Add A New Book</a>
 </div>

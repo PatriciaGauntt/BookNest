@@ -1,5 +1,5 @@
 <div class="create-container">
-<h3>Add a book to Our BookNest</h3>
+<h3 class="pacifico-heading">Add a book to Our BookNest</h3>
 <div class="book-details-container">
 
   <div class="edit">
@@ -23,7 +23,7 @@
       </div>
 
       <div class="form-group">
-        <label for="series_name">Series Name :</label>
+        <label for="series_name">Series Name* :</label>
         <input id="series_name" formControlName="series_name" type="text">
       </div>
 
@@ -43,17 +43,17 @@
       </div>
 
       <div class="form-group">
-        <label for="imagePath">imagePath :</label>
+        <label for="imagePath">imagePath* :</label>
         <input id="imagePath" formControlName="imagePath" type="string">
       </div>
-
-    </form>
+      <span class="not-required-note">* not required</span>
+   </form>
   </div>
 </div>
 
 
 
-<div class="home-buttons">
+<div class="button-row home-buttons">
   <button class="btn btn-details" (click)="createBook()">Save</button>
   <a class="btn btn-delete" [routerLink]="['/books/search']">Cancel</a>
 </div>

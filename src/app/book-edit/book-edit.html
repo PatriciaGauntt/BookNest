@@ -1,4 +1,4 @@
-<h3><em>{{ currentBook.title }}</em> Edit</h3>
+<h3 class="pacifico-heading"><em>{{ currentBook.title }}</em> Edit</h3>
 <div class="book-details-container">
 
   <div class="edit">
@@ -22,7 +22,7 @@
       </div>
 
       <div class="form-group">
-        <label for="series_name">Series Name :</label>
+        <label for="series_name">Series Name* :</label>
         <input id="series_name" formControlName="series_name" type="text">
       </div>
 
@@ -42,10 +42,10 @@
       </div>
 
       <div class="form-group">
-        <label for="imagePath">imagePath :</label>
+        <label for="imagePath">imagePath* :</label>
         <input id="imagePath" formControlName="imagePath" type="string">
       </div>
-
+      <span class="not-required-note">* not required</span>
     </form>
   </div>
 
@@ -56,9 +56,7 @@
     [src]="currentBook.imagePath || '/images/detailsBookImage.jpg'">
 
 </div>
-
-
-<div class="edit-buttons">
+<div class="edit-buttons button-row">
   <button class="btn btn-edit" (click)="saveBook()">Update</button>
   <a class="btn btn-delete" [routerLink]="['/books/search']">Cancel</a>
 </div>

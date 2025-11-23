@@ -1,6 +1,7 @@
-<h3><em>{{ currentBook.title }}</em> Details</h3>
+<h3 class="pacifico-heading"><em>{{ currentBook.title }}</em> Details</h3>
 
 <div class="book-details-container">
+
   <div class="details">
     <div><span>ID :</span> {{ currentBook.id }} </div>
     <div><span>Author :</span> {{ currentBook.author_last_name }}, {{ currentBook.author_first_name }} </div>
@@ -8,14 +9,35 @@
     <div><span>Publication Year :</span> {{ currentBook.publication_year }} </div>
     <div><span>Book Location :</span> {{ currentBook.location }} </div>
     <div><span>Book Case # :</span> {{ currentBook.bookcase }} </div>
-    <a class="btn btn-edit me-5 mt-2" [routerLink]="['/books/edit',currentBook.id]">Edit</a>
+
+    <a
+      class="btn btn-edit me-5 mt-2"
+      [routerLink]="['/books/edit', currentBook.id]">
+      Edit
+    </a>
+
     <button class="btn btn-delete mt-2" (click)="confirmDelete()">Delete</button>
   </div>
 
-<div class="divider"></div>
+  <!-- ✅ Delete Confirmation Modal -->
+  @if (showDeleteModal) {
+    <div class="modal-backdrop"></div>
 
+    <div class="delete-modal">
+      <h3>Confirm Delete</h3>
+      <p>Are you sure you want to delete this book?</p>
 
-  <img class="book-picture"
+      <div class="modal-buttons">
+        <button class="btn btn-delete" (click)="deleteBook()">Yes, Delete</button>
+        <button class="btn btn-cancel" (click)="closeModal()">Cancel</button>
+      </div>
+    </div>
+  }
+
+  <div class="divider"></div>
+
+  <img
+    class="book-picture"
     [src]="currentBook.imagePath || '/images/detailsBookImage.jpg'">
 </div>
 
@@ -33,4 +55,5 @@
 
   <button type="submit" class="primary">Post Comment</button>
 </form>
+
 
