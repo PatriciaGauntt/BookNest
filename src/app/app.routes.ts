@@ -34,10 +34,13 @@ export const routes: Routes = [
     component: BookDetails,
     title: 'Book Details',
   },
-    {
+  {
     path: 'books/edit/:id',
     component: BookEdit,
     title: 'Book Edit',
   },
-
+  {
+    path: '_temp',
+    component: BookHome, // or a blank tiny component
+  },
 ];

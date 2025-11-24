@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Book as BookType } from '../book'
 import { ActivatedRoute, RouterModule, Router } from '@angular/router';
 import { BookService } from '../book.service';
@@ -17,7 +17,7 @@ export class BookCreate {
       title: new FormControl(''),
       author_first_name: new FormControl(''),
       author_last_name: new FormControl(''),
-      publication_year: new FormControl(1900),
+      publication_year: new FormControl(2011),
       series_name: new FormControl(''),
       location: new FormControl(''),
       bookcase: new FormControl(0),

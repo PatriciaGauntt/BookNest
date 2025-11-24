@@ -51,16 +51,15 @@ export class BookSearch {
     this.allLocations = [...new Set(this.masterBooks.map(b => b.location))].sort();
   }
 
-  async searchBooks(searchString: string) {
-    const term = searchString.toLowerCase();
+async searchBooks(searchString: string) {
+  const regex = new RegExp(searchString, 'i');
 
-    const filtered = this.masterBooks.filter(b =>
-      b.title?.toLowerCase().includes(term) ||
-      b.author_last_name?.toLowerCase().includes(term) ||
-      b.author_first_name?.toLowerCase().includes(term) ||
-      b.series_name?.toLowerCase().includes(term)
-    );
-
+  const filtered = this.masterBooks.filter(b =>
+    regex.test(b.title || '') ||
+    regex.test(b.author_last_name || '') ||
+    regex.test(b.author_first_name || '') ||
+    regex.test(b.series_name || '')
+  );
     this.fullResults = filtered;
     this.currentPage = 0;
 

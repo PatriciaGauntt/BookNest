@@ -13,9 +13,9 @@ export class App {
       this.router.navigate(['/books/search']);
     });
   }
-  reloadHome() {
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['']);
-    });
-  }
+reloadHome() {
+  this.router.navigateByUrl('/_temp', { skipLocationChange: true }).then(() => {
+    this.router.navigate(['/']);
+  });
+}
 }
