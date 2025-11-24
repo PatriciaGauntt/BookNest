@@ -19,15 +19,12 @@ export class BookService {
 
   async submitComment(bookId: string, name: string, comment: string) {
     const commentPayload = {
-      comments: {
-       name,
-        comment,
-        commentDate: new Date().toISOString()
-      }
+      name,
+      comment
     };
 
-    const response = await fetch(`${this.url}/${bookId}`, {
-      method: 'PATCH',
+    const response = await fetch(`${this.url}/${bookId}/comments`, {
+      method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(commentPayload),
     });
