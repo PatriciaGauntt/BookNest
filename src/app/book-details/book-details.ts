@@ -18,6 +18,7 @@ export class BookDetails {
   currentBook!: BookType;
 
   showDeleteModal = false;
+  commentPosted = false;
 
   commentForm = new FormGroup({
     name: new FormControl(''),
@@ -31,12 +32,27 @@ export class BookDetails {
     });
   }
 
-  submitComment() {
-    this.bookService.submitComment(
-      this.commentForm.value.name ?? '',
-      this.commentForm.value.comment ?? ''
-    );
-  }
+async submitComment() {
+  await this.bookService.submitComment(
+    this.bookId,
+    this.commentForm.value.name ?? '',
+    this.commentForm.value.comment ?? ''
+  );
+
+  // Reload updated book
+  this.currentBook = await this.bookService.getBookById(this.bookId);
+
+  // Clear form
+  this.commentForm.reset();
+
+  // Show success message
+  this.commentPosted = true;
+
+  // Auto-hide after 3 seconds
+  setTimeout(() => {
+    this.commentPosted = false;
+  }, 3000);
+}
   confirmDelete() {
     this.showDeleteModal = true;
   }

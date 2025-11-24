@@ -35,10 +35,9 @@ export class BookEdit {
     });
   }
 
-  async saveBook() {
-    const updateBook: Book = this.bookEditForm.value;
-    await this.bookService.updateBook(this.bookId, updateBook);
-    // Redirect to the listing page
-    this.router.navigate(['']);
-  }
+async saveBook() {
+  const updateBook: Book = this.bookEditForm.value;
+  await this.bookService.updateBook(this.bookId, updateBook);
+  this.router.navigate([`/books/${this.bookId}`]);
+}
 }

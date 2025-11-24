@@ -14,6 +14,29 @@
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4); /* 40% opacity */
+  background: rgba(0, 0, 0, 0.4);
   z-index: 10;
+}
+
+.comment-success {
+  background-color: #ea09c3;
+  border: 2px solid #6d07b6;
+  padding: 10px 15px;
+  border-radius: 10px;
+  width: fit-content;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.comment-field {
+  width: 100%;
+  max-width: 200px;
+  box-sizing: border-box;
 }

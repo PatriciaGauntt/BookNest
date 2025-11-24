@@ -40,16 +40,22 @@
     [src]="currentBook.imagePath || '/images/detailsBookImage.jpg'">
 </div>
 
+@if (commentPosted) {
+  <div class="comment-success">
+    ✔ Comment Posted!
+  </div>
+}
+
 <form [formGroup]="commentForm" (submit)="submitComment()">
   <div>
     <br>
     <label for="name">Name</label><br>
-    <input id="name" type="text" formControlName="name" />
+    <input id="name" type="text" formControlName="name" class="comment-field" />
   </div>
 
   <div>
     <label for="comment">Comment</label><br>
-    <textarea id="comment" formControlName="comment"></textarea>
+    <textarea id="comment" formControlName="comment" class="comment-field"></textarea>
   </div>
 
   <button type="submit" class="primary">Post Comment</button>

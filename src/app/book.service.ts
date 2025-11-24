@@ -17,8 +17,23 @@ export class BookService {
     return (await data.json()) ?? {};
   }
 
-  submitComment(name: string, comment: string) {
-    console.error(`Submitted comment from name ${name} with comment : ${comment}`);
+  async submitComment(bookId: string, name: string, comment: string) {
+    const commentPayload = {
+      comments: {
+       name,
+        comment,
+        commentDate: new Date().toISOString()
+      }
+    };
+
+    const response = await fetch(`${this.url}/${bookId}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(commentPayload),
+    });
+
+    if (response.ok) return true;
+    throw new Error('Failed to save comment');
   }
 
   async searchBooks(searchString: string): Promise<Book[]> {
@@ -29,6 +44,7 @@ export class BookService {
   async deleteBook(id: string): Promise<void> {
     await fetch(`${this.url}/${id}`, {method: 'DELETE'});
   }
+
   async updateBook(id: string, bookData: Book) {
     await fetch(`${this.url}/${id}`, {
       method: 'PATCH',
