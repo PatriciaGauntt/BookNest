@@ -1,7 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Book as BookType } from '../book';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { BookService } from '../book.service';
 import { FormsModule } from '@angular/forms';
 
@@ -19,12 +19,11 @@ export type SortableBookFields =
 })
 export class BookSearch {
 
+  router: Router = inject(Router);
   bookService: BookService = inject(BookService);
 
   masterBooks: BookType[] = [];
-
   fullResults: BookType[] = [];
-
   pagedResults: BookType[] = [];
 
   allLocations: string[] = [];
@@ -53,8 +52,13 @@ export class BookSearch {
   }
 
   async searchBooks(searchString: string) {
+    const term = searchString.toLowerCase();
+
     const filtered = this.masterBooks.filter(b =>
-      b.title.toLowerCase().includes(searchString.toLowerCase())
+      b.title?.toLowerCase().includes(term) ||
+      b.author_last_name?.toLowerCase().includes(term) ||
+      b.author_first_name?.toLowerCase().includes(term) ||
+      b.series_name?.toLowerCase().includes(term)
     );
 
     this.fullResults = filtered;
@@ -72,7 +76,6 @@ export class BookSearch {
     }
 
     this.fullResults = list;
-
     this.currentPage = 0;
 
     this.applySorting();
@@ -125,3 +128,4 @@ export class BookSearch {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
+

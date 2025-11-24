@@ -11,11 +11,13 @@ export const routes: Routes = [
     path: '',
     component: BookHome,
     title: 'Book Home',
+    runGuardsAndResolvers: 'always'
   },
   {
     path: 'books/search',
     component: BookSearch,
     title: 'Book Search',
+    runGuardsAndResolvers: 'always',
   },
     {
     path: 'books/overview',
