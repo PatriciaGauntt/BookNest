@@ -30,8 +30,19 @@ export class BookService {
     });
 
     if (response.ok) return true;
-    throw new Error('Failed to save comment');
+      throw new Error('Failed to save comment');
   }
+  async deleteComment(bookId: string, commentId: string): Promise<any> {
+  const response = await fetch(`${this.url}/${bookId}/comments/${commentId}`, {
+    method: 'DELETE'
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to delete comment');
+  }
+
+  return response.json();
+}
 
   async searchBooks(searchString: string): Promise<Book[]> {
     console.error(`---> ${searchString}`);
@@ -46,9 +57,9 @@ export class BookService {
     await fetch(`${this.url}/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(bookData),
-    });
-  }
+       body: JSON.stringify(bookData),
+      });
+    }
   async createBook(book: CreateBook) {
     const response = await fetch(this.url, {
       method: 'POST',

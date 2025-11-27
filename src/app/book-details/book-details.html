@@ -32,12 +32,8 @@
       </div>
     </div>
   }
-
   <div class="divider"></div>
-
-  <img
-    class="book-picture"
-    [src]="currentBook.imagePath || '/images/detailsBookImage.jpg'">
+    <img class="book-picture" [src]="currentBook.imagePath || '/images/detailsBookImage.jpg'">
 </div>
 
 @if (commentPosted) {
@@ -61,4 +57,8 @@
   <button type="submit" class="primary">Post Comment</button>
 </form>
 
-
+    <a
+      class="btn btn-edit me-5 mt-2"
+      [routerLink]="['/books', currentBook.id, 'comments']">
+      View Comments
+    </a>

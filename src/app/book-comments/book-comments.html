@@ -1,0 +1,39 @@
+<div class="book-search">
+  <h3 class="pacifico-heading"><em>{{ currentBook?.title }}</em> Comments</h3>
+</div>
+
+<br>
+
+<section class="results">
+
+  <table class="table table-hover table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Comments</th>
+        <th>Comment Date</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+
+    <!-- Add this tbody to render the comments -->
+    <tbody>
+      <tr *ngFor="let c of comments">
+        <td>{{ c.name }}</td>
+        <td>{{ c.comment }}</td>
+        <td>{{ c.commentDate | date:'short' }}</td>
+        <td class="text-center">
+          <a (click)="deleteComment(c.commentId)" class="icon-link delete-icon">
+            🧹
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<div class="button-row home-buttons">
+  <a class="btn btn-details me-4" [routerLink]="['/books', bookId]">Book Details</a>
+  <a class="btn btn-edit" [routerLink]="['/books/search']">Search Our BookNest</a>
+</div>
+
+</section>

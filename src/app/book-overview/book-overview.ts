@@ -9,5 +9,5 @@ import { RouterModule } from '@angular/router';
   styleUrl: './book-overview.css',
 })
 export class BookOverview {
-    currentBook = input.required<BookType>();
+  currentBook = input.required<BookType>();
 }

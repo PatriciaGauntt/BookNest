@@ -1,7 +1,6 @@
 .home-picture {
   max-width: 500px;
 }
-
 .book-home-container {
   display: flex;
   justify-content: center;
@@ -11,7 +10,6 @@
   padding: 30px;
   margin-bottom: 30px;
 }
-
 .home-buttons {
   gap: 30px;
 }

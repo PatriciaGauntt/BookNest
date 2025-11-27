@@ -32,27 +32,27 @@ export class BookDetails {
     });
   }
 
-async submitComment() {
-  await this.bookService.submitComment(
-    this.bookId,
-    this.commentForm.value.name ?? '',
-    this.commentForm.value.comment ?? ''
-  );
+  async submitComment() {
+    await this.bookService.submitComment(
+      this.bookId,
+      this.commentForm.value.name ?? '',
+      this.commentForm.value.comment ?? ''
+    );
 
-  // Reload updated book
-  this.currentBook = await this.bookService.getBookById(this.bookId);
+    // Reload updated book
+    this.currentBook = await this.bookService.getBookById(this.bookId);
 
-  // Clear form
-  this.commentForm.reset();
+    // Clear form
+    this.commentForm.reset();
 
-  // Show success message
-  this.commentPosted = true;
+    // Show success message
+    this.commentPosted = true;
 
-  // Auto-hide after 3 seconds
-  setTimeout(() => {
-    this.commentPosted = false;
-  }, 3000);
-}
+    // Auto-hide after 3 seconds
+    setTimeout(() => {
+      this.commentPosted = false;
+    }, 3000);
+  }
   confirmDelete() {
     this.showDeleteModal = true;
   }

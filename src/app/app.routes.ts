@@ -5,6 +5,7 @@ import { BookEdit } from './book-edit/book-edit'
 import { BookCreate } from './book-create/book-create';
 import { BookHome } from './book-home/book-home';
 import { BookOverview } from './book-overview/book-overview';
+import { BookComments } from './book-comments/book-comments';
 
 export const routes: Routes = [
   {
@@ -38,6 +39,11 @@ export const routes: Routes = [
     path: 'books/edit/:id',
     component: BookEdit,
     title: 'Book Edit',
+  },
+  {
+    path: 'books/:id/comments',
+    component: BookComments,
+    title: 'Book Comments',
   },
   {
     path: '_temp',
