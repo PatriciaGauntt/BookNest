@@ -38,3 +38,17 @@
   max-width: 200px;
   box-sizing: border-box;
 }
+.cute-btn {
+  background-color: #e0e0e0;   /* gray */
+  border: 1px solid #ccc;
+  padding: 4px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+.cute-btn:hover {
+  background-color: #f8b3e3;   /* pink */
+}
+

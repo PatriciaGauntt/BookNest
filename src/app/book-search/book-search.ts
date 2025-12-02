@@ -28,6 +28,7 @@ export class BookSearch {
 
   allLocations: string[] = [];
   selectedLocation: string = '';
+  searchTerm: string = '';   // ⭐ added so we can track search input
 
   sortColumn: SortableBookFields | '' = '';
   sortDirection: 'asc' | 'desc' = 'asc';
@@ -51,34 +52,60 @@ export class BookSearch {
     this.allLocations = [...new Set(this.masterBooks.map(b => b.location))].sort();
   }
 
-async searchBooks(searchString: string) {
-  const regex = new RegExp(searchString, 'i');
-
-  const filtered = this.masterBooks.filter(b =>
-    regex.test(b.title || '') ||
-    regex.test(b.author_last_name || '') ||
-    regex.test(b.author_first_name || '') ||
-    regex.test(b.series_name || '')
-  );
-    this.fullResults = filtered;
-    this.currentPage = 0;
-
-    this.applySorting();
-    this.applyPaging();
+  // ⭐ NEW SEARCH HANDLER
+  onSearchChange() {
+    if (this.searchTerm.trim() !== '') {
+      // When typing → disable location filter
+      this.selectedLocation = '';
+    }
+    this.applyFilters();
   }
 
+  // ⭐ NEW LOCATION HANDLER
+  onLocationChange() {
+    if (this.selectedLocation !== '') {
+      // When selecting location → disable search filter
+      this.searchTerm = '';
+    }
+    this.applyFilters();
+  }
+
+  // ⭐ REPLACED applyFilters WITH LOGIC YOU REQUESTED
   applyFilters() {
     let list = [...this.masterBooks];
 
-    if (this.selectedLocation) {
+    const hasSearch = this.searchTerm.trim() !== '';
+    const hasLocation = this.selectedLocation !== '';
+
+    // 1. Search only
+    if (hasSearch && !hasLocation) {
+      const regex = new RegExp(this.searchTerm, 'i');
+      list = list.filter(b =>
+        regex.test(b.title || '') ||
+        regex.test(b.author_last_name || '') ||
+        regex.test(b.author_first_name || '') ||
+        regex.test(b.series_name || '')
+      );
+    }
+
+    // 2. Location only
+    else if (!hasSearch && hasLocation) {
       list = list.filter(b => b.location === this.selectedLocation);
     }
+
+    // 3. Both empty → all books (list already = masterBooks)
 
     this.fullResults = list;
     this.currentPage = 0;
 
     this.applySorting();
     this.applyPaging();
+  }
+
+  // ⭐ Remove old searchBooks (not used)
+  async searchBooks(searchString: string) {
+    this.searchTerm = searchString;
+    this.onSearchChange();
   }
 
   sortByDirection(column: SortableBookFields, direction: 'asc' | 'desc') {

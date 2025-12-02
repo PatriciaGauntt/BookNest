@@ -1,24 +1,34 @@
 <div class="book-search">
   <h2 class="pacifico-heading">Search Our BookNest</h2>
 </div>
-<form (submit)="searchBooks(searchTerm.value); $event.preventDefault()">
 
+<form (submit)="searchBooks(searchTermInput.value); $event.preventDefault()">
+
+  <!-- SEARCH INPUT -->
   <input class="form-control d-inline w-25 border border-1 border-secondary"
       type="text"
       placeholder="Search for books"
-      #searchTerm />
+      [(ngModel)]="searchTerm"
+      (input)="onSearchChange()"
+      #searchTermInput
+      name="searchTerm" />
 
   <button class="btn btn-primary ms-1" type="submit">Search</button>
 
   <div class="inline-float-right">
+
+    <!-- LOCATION FILTER -->
     <select class="form-select w-auto border-secondary"
           [(ngModel)]="selectedLocation"
-          (change)="applyFilters()"
+          (change)="onLocationChange()"
           name="locationFilter">
+
       <option value="">All Locations</option>
+
       <option *ngFor="let loc of allLocations" [value]="loc">
         {{ loc }}
       </option>
+
     </select>
   </div>
 </form>
@@ -41,6 +51,7 @@
               </button>
           </div>
         </th>
+
         <th>
           <div class="sort-container">
             <span>Author Last</span>
@@ -52,6 +63,7 @@
               </button>
           </div>
         </th>
+
         <th>
           <div class="sort-container">
             <span>Author First</span>
@@ -63,6 +75,7 @@
               </button>
           </div>
         </th>
+
         <th>
           <div class="sort-container">
             <span>Series</span>
@@ -74,6 +87,7 @@
               </button>
           </div>
         </th>
+
         <th>Details</th>
       </tr>
     </thead>
