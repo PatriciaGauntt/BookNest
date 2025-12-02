@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Book as BookType } from '../book';
 import { RouterModule, Router } from '@angular/router';
@@ -22,13 +22,19 @@ export class BookSearch {
   router: Router = inject(Router);
   bookService: BookService = inject(BookService);
 
+  disableLocationFilter = false;
+  disableSearchBox = false;
+
   masterBooks: BookType[] = [];
   fullResults: BookType[] = [];
   pagedResults: BookType[] = [];
 
   allLocations: string[] = [];
   selectedLocation: string = '';
-  searchTerm: string = '';   // ⭐ added so we can track search input
+  searchTerm: string = '';
+
+  // ⭐ NEW ⭐
+  isSearching = false;
 
   sortColumn: SortableBookFields | '' = '';
   sortDirection: 'asc' | 'desc' = 'asc';
@@ -52,25 +58,43 @@ export class BookSearch {
     this.allLocations = [...new Set(this.masterBooks.map(b => b.location))].sort();
   }
 
-  // ⭐ NEW SEARCH HANDLER
+  //
+  // ⭐ SEARCH HANDLER — clean and correct
+  //
   onSearchChange() {
-    if (this.searchTerm.trim() !== '') {
-      // When typing → disable location filter
+    const hasSearch = this.searchTerm.trim() !== '';
+
+    if (hasSearch) {
       this.selectedLocation = '';
+      this.disableLocationFilter = true;
+      this.disableSearchBox = false;
+    } else {
+      this.disableLocationFilter = false;
     }
+
     this.applyFilters();
   }
 
-  // ⭐ NEW LOCATION HANDLER
+  //
+  // ⭐ LOCATION HANDLER — clean and correct
+  //
   onLocationChange() {
-    if (this.selectedLocation !== '') {
-      // When selecting location → disable search filter
+    const hasLocation = this.selectedLocation !== '';
+
+    if (hasLocation) {
       this.searchTerm = '';
+      this.disableSearchBox = true;
+      this.disableLocationFilter = false;
+    } else {
+      this.disableSearchBox = false;
     }
+
     this.applyFilters();
   }
 
-  // ⭐ REPLACED applyFilters WITH LOGIC YOU REQUESTED
+  //
+  // ⭐ CLEAN FILTER LOGIC — your 3 rules
+  //
   applyFilters() {
     let list = [...this.masterBooks];
 
@@ -93,21 +117,41 @@ export class BookSearch {
       list = list.filter(b => b.location === this.selectedLocation);
     }
 
-    // 3. Both empty → all books (list already = masterBooks)
+    // 3. Neither — show all (list untouched)
 
     this.fullResults = list;
     this.currentPage = 0;
+
+    // ⭐ NEW — track searching state ⭐
+    this.isSearching = hasSearch || hasLocation;
 
     this.applySorting();
     this.applyPaging();
   }
 
-  // ⭐ Remove old searchBooks (not used)
-  async searchBooks(searchString: string) {
-    this.searchTerm = searchString;
-    this.onSearchChange();
+  //
+  // ⭐ RESET BUTTON LOGIC
+  //
+  resetFilters() {
+    this.searchTerm = '';
+    this.selectedLocation = '';
+
+    this.disableSearchBox = false;
+    this.disableLocationFilter = false;
+
+    // search mode off
+    this.isSearching = false;
+
+    // Reapply filters (show all)
+    this.applyFilters();
+
+    this.currentPage = 0;
+    this.applyPaging();
   }
 
+  //
+  // SORTING
+  //
   sortByDirection(column: SortableBookFields, direction: 'asc' | 'desc') {
     this.sortColumn = column;
     this.sortDirection = direction;

@@ -18,16 +18,18 @@
 
     <!-- Add this tbody to render the comments -->
     <tbody>
-      <tr *ngFor="let c of comments">
-        <td>{{ c.name }}</td>
-        <td>{{ c.comment }}</td>
-        <td>{{ c.commentDate | date:'short' }}</td>
-        <td class="text-center">
-          <a (click)="deleteComment(c.commentId)" class="icon-link delete-icon">
-            🧹
-          </a>
-        </td>
-      </tr>
+      @for (c of comments; track c) {
+        <tr>
+          <td>{{ c.name }}</td>
+          <td>{{ c.comment }}</td>
+          <td>{{ c.commentDate | date:'short' }}</td>
+          <td class="text-center">
+            <a (click)="deleteComment(c.commentId)" class="icon-link delete-icon">
+              🧹
+            </a>
+          </td>
+        </tr>
+      }
     </tbody>
   </table>
 
