@@ -39,7 +39,7 @@ To start a local development server, run:
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+<!---Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
 ## Code scaffolding
 
@@ -85,7 +85,7 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 
 ## Additional Resources
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.--->
 
 ### Backend Setup (Express App)
 
@@ -102,94 +102,6 @@ BookNest
 ├─ package.json
 ├─ public
 │  ├─ images
-├─ README.md
-├─ src
-│  ├─ app
-│  │  ├─ app.config.ts
-│  │  ├─ app.css
-│  │  ├─ app.html
-│  │  ├─ app.routes.ts
-│  │  ├─ app.spec.ts
-│  │  ├─ app.ts
-│  │  ├─ book-comments
-│  │  │  ├─ book-comments.css
-│  │  │  ├─ book-comments.html
-│  │  │  ├─ book-comments.spec.ts
-│  │  │  └─ book-comments.ts
-│  │  ├─ book-create
-│  │  │  ├─ book-create.css
-│  │  │  ├─ book-create.html
-│  │  │  ├─ book-create.spec.ts
-│  │  │  └─ book-create.ts
-│  │  ├─ book-details
-│  │  │  ├─ book-details.css
-│  │  │  ├─ book-details.html
-│  │  │  ├─ book-details.spec.ts
-│  │  │  └─ book-details.ts
-│  │  ├─ book-edit
-│  │  │  ├─ book-edit.css
-│  │  │  ├─ book-edit.html
-│  │  │  ├─ book-edit.spec.ts
-│  │  │  └─ book-edit.ts
-│  │  ├─ book-home
-│  │  │  ├─ book-home.css
-│  │  │  ├─ book-home.html
-│  │  │  ├─ book-home.spec.ts
-│  │  │  └─ book-home.ts
-│  │  ├─ book-overview
-│  │  │  ├─ book-overview.css
-│  │  │  ├─ book-overview.html
-│  │  │  ├─ book-overview.spec.ts
-│  │  │  └─ book-overview.ts
-│  │  ├─ book-search
-│  │  │  ├─ book-search.css
-│  │  │  ├─ book-search.html
-│  │  │  ├─ book-search.spec.ts
-│  │  │  └─ book-search.ts
-│  │  ├─ book.service.ts
-│  │  ├─ book.ts
-│  │  └─ books
-│  │     ├─ books.css
-│  │     ├─ books.html
-│  │     ├─ books.spec.ts
-│  │     └─ books.ts
-│  ├─ index.html
-│  ├─ main.ts
-│  ├─ proxy.conf.json
-│  └─ styles.css
-├─ tsconfig.app.json
-├─ tsconfig.json
-└─ tsconfig.spec.json
-
-```
-
-```
-BookNest
-├─ .angular
-├─ .editorconfig
-├─ angular.json
-├─ package-lock.json
-├─ package.json
-├─ public
-│  ├─ images
-│  │  ├─ carlsDoomsday.jpg
-│  │  ├─ detailsBookImage.jpg
-│  │  ├─ dungeonCrawlerCarl.jpg
-│  │  ├─ eclipse.jpg
-│  │  ├─ emptyImageBook.jpg
-│  │  ├─ exile.jpg
-│  │  ├─ goodDogCarl.jpg
-│  │  ├─ homeland.jpg
-│  │  ├─ house-made-books.jpg
-│  │  ├─ house-made-books2.jpg
-│  │  ├─ house-made-books3.jpg
-│  │  ├─ kingArthur.jpg
-│  │  ├─ map.jpg
-│  │  ├─ newmoon.jpg
-│  │  ├─ sojourn.jpg
-│  │  └─ twilght.jpg
-│  ├─ nest_books_icon.ico
-│  └─ purple_book_icon.ico
 ├─ README.md
 ├─ src
 │  ├─ app
