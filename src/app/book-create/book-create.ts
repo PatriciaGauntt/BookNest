@@ -21,6 +21,7 @@ export class BookCreate {
       series_name: new FormControl(''),
       location: new FormControl(''),
       bookcase: new FormControl(0),
+      bookshelf: new FormControl(0),
       imagePath: new FormControl(''),
     });
 

@@ -28,7 +28,7 @@
 
       <div class="form-group">
         <label for="publication_year">Publication Year :</label>
-        <input id="publication_year" formControlName="publication_year" type="number">
+        <input id="publication_year" formControlName="publication_year" type="number" min="0">
       </div>
 
       <div class="form-group">
@@ -38,7 +38,12 @@
 
       <div class="form-group">
         <label for="bookcase">Book Case # :</label>
-        <input id="bookcase" formControlName="bookcase" type="number">
+        <input id="bookcase" formControlName="bookcase" type="number" min="0">
+      </div>
+
+      <div class="form-group">
+        <label for="bookshelf">Book Shelf # :</label>
+        <input id="bookshelf" formControlName="bookshelf" type="number" min="0">
       </div>
 
       <div class="form-group">

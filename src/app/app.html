@@ -19,15 +19,16 @@
         <a (click)="reloadHome()" class="nav-link" routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" routerLink="/books/overview" routerLinkActive="active-link">Nest Overview</a>
+      </li>
+      <li class="nav-item">
         <a (click)="reloadSearch()" class="nav-link" routerLink="/books/search" routerLinkActive="active-link">Book Listing</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/books/new" routerLinkActive="active-link">Add Book</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/books/overview">Nest Overview</a>
-        <!---/li>
-          <li class="nav-item">
+
+          <!---li class="nav-item">
           <a class="nav-link" href="contact.html">Contact</a>
         </li--->
       </ul>

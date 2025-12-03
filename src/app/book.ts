@@ -7,6 +7,7 @@ export interface Book {
   series_name: string;
   location: string;
   bookcase: number;
+  bookshelf: number;
   imagePath: string;
 
   comments?: {
@@ -24,5 +25,6 @@ export interface CreateBook {
   series_name? : string | null;
   location? : string | null;
   bookcase? : number | null;
+  bookshelf? : number | null;
   imagePath? : string | null;
 }

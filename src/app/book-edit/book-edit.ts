@@ -30,6 +30,7 @@ export class BookEdit {
       series_name: new FormControl(this.currentBook.series_name ?? ''),
       location: new FormControl(this.currentBook.location),
       bookcase: new FormControl(this.currentBook.bookcase),
+      bookshelf: new FormControl(this.currentBook.bookshelf),
       imagePath: new FormControl(this.currentBook.imagePath ?? ''),
     });
     });

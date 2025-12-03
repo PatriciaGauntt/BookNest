@@ -126,10 +126,18 @@
     <tbody>
       @for (result of pagedResults; track result.id) {
       <tr>
-        <td>{{ result.title }}</td>
+        <td>{{ result.title.length > 38
+          ? (result.title | slice:0:38) + '...'
+          : result.title
+        }}</td>
         <td>{{ result.author_last_name }}</td>
         <td>{{ result.author_first_name }}</td>
-        <td>{{ result.series_name }}</td>
+        <td> {{
+          (result.series_name || '').length > 30
+          ? ((result.series_name || '') | slice:0:30) + '...'
+          : (result.series_name || '')
+          }}
+        </td>
         <td class="text-center">
           <a [routerLink]="['/books', result.id]" class="icon-link">
             🔍
