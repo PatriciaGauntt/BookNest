@@ -24,15 +24,27 @@
     <div class="modal-backdrop"></div>
 
     <div class="delete-modal">
-      <h3>Confirm Delete</h3>
+      <h3 class="pacifico-heading">Confirm Delete</h3>
       <p>Are you sure you want to delete this book?</p>
 
       <div class="modal-buttons">
-        <button class="btn btn-delete" (click)="deleteBook()">Yes, Delete</button>
+        <button class="btn btn-delete me-3" (click)="deleteBook()">Yes, Delete</button>
         <button class="btn btn-cancel" (click)="closeModal()">Cancel</button>
       </div>
     </div>
   }
+  @if (showDeleteSuccess) {
+  <div class="modal-backdrop"></div>
+
+  <div class="delete-modal">
+    <h3 class="pacifico-heading">Book Deleted</h3>
+    <p>Book successfully deleted.</p>
+
+    <div class="modal-buttons">
+      <button class="btn btn-edit" (click)="closeSuccessModal()">Back to Search</button>
+    </div>
+  </div>
+}
   <div class="divider"></div>
     <img class="book-picture" [src]="currentBook.imagePath || '/images/detailsBookImage.jpg'">
 </div>

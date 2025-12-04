@@ -1,66 +1,79 @@
 <div class="create-container">
-<h3 class="pacifico-heading">Add a book to Our BookNest</h3>
-<div class="book-details-container">
+  <h3 class="pacifico-heading">Add a book to Our BookNest</h3>
 
-  <div class="edit">
+  <div class="book-details-container">
+    <div class="edit">
+      <form [formGroup]="newBookForm">
 
+        <div class="form-group">
+          <label for="title">Title :</label>
+          <input id="title" formControlName="title" type="text">
+        </div>
 
-    <form [formGroup]="newBookForm">
+        <div class="form-group">
+          <label for="author_first_name">Author First Name :</label>
+          <input id="author_first_name" formControlName="author_first_name" type="text">
+        </div>
 
-      <div class="form-group">
-        <label for="title">Title :</label>
-        <input id="title" formControlName="title" type="text">
-      </div>
+        <div class="form-group">
+          <label for="author_last_name">Author Last Name :</label>
+          <input id="author_last_name" formControlName="author_last_name" type="text">
+        </div>
 
-      <div class="form-group">
-        <label for="author_first_name">Author First Name :</label>
-        <input id="author_first_name" formControlName="author_first_name" type="text">
-      </div>
+        <div class="form-group">
+          <label for="series_name">Series Name* :</label>
+          <input id="series_name" formControlName="series_name" type="text">
+        </div>
 
-      <div class="form-group">
-        <label for="author_last_name">Author Last Name :</label>
-        <input id="author_last_name" formControlName="author_last_name" type="text">
-      </div>
+        <div class="form-group">
+          <label for="publication_year">Publication Year :</label>
+          <input id="publication_year" formControlName="publication_year" type="number" min="0">
+        </div>
 
-      <div class="form-group">
-        <label for="series_name">Series Name* :</label>
-        <input id="series_name" formControlName="series_name" type="text">
-      </div>
+        <div class="form-group">
+          <label for="location">Location :</label>
+          <input id="location" formControlName="location" type="text">
+        </div>
 
-      <div class="form-group">
-        <label for="publication_year">Publication Year :</label>
-        <input id="publication_year" formControlName="publication_year" type="number" min="0">
-      </div>
+        <div class="form-group">
+          <label for="bookcase">Book Case # :</label>
+          <input id="bookcase" formControlName="bookcase" type="number" min="0">
+        </div>
 
-      <div class="form-group">
-        <label for="location">Location :</label>
-        <input id="location" formControlName="location" type="text">
-      </div>
+        <div class="form-group">
+          <label for="bookshelf">Book Shelf # :</label>
+          <input id="bookshelf" formControlName="bookshelf" type="number" min="0">
+        </div>
 
-      <div class="form-group">
-        <label for="bookcase">Book Case # :</label>
-        <input id="bookcase" formControlName="bookcase" type="number" min="0">
-      </div>
+        <div class="form-group">
+          <label for="imagePath">Image Path* :</label>
+          <input id="imagePath" formControlName="imagePath" type="string">
+        </div>
 
-      <div class="form-group">
-        <label for="bookshelf">Book Shelf # :</label>
-        <input id="bookshelf" formControlName="bookshelf" type="number" min="0">
-      </div>
+      </form>
 
-      <div class="form-group">
-        <label for="imagePath">imagePath* :</label>
-        <input id="imagePath" formControlName="imagePath" type="string">
-      </div>
+      <!-- MOVE THIS OUTSIDE THE FORM -->
       <span class="not-required-note">* not required</span>
-   </form>
+
+    </div>
+  </div>
+
+    @if (showValidationModal) {
+    <div class="modal-backdrop"></div>
+
+    <div class="delete-modal">
+      <h3 class="pacifico-heading">Missing Information</h3>
+      <p>Please fill out all required fields before saving.</p>
+
+      <div class="modal-buttons">
+        <button class="btn btn-details" (click)="closeValidationModal()">OK</button>
+      </div>
+    </div>
+  }
+
+  <div class="button-row home-buttons">
+    <button class="btn btn-details" (click)="createBook()">Save</button>
+    <a class="btn btn-delete" [routerLink]="['/books/search']">Cancel</a>
   </div>
 </div>
-
-
-
-<div class="button-row home-buttons">
-  <button class="btn btn-details" (click)="createBook()">Save</button>
-  <a class="btn btn-delete" [routerLink]="['/books/search']">Cancel</a>
-</div>
-
 

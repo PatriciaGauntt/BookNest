@@ -16,12 +16,11 @@
       </tr>
     </thead>
 
-    <!-- Add this tbody to render the comments -->
     <tbody>
       @for (c of comments; track c) {
         <tr>
-          <td>{{ c.user ?? c.name }}</td> <!--remove when reload data-->
-          <td>{{ c.text ?? c.comment }}</td> <!--remove when reload data-->
+          <td>{{ c.name }}</td>
+          <td>{{ c.comment }}</td>
           <td>{{ c.commentDate | date:'short' }}</td>
           <td class="text-center">
             <a (click)="deleteComment(c.commentId)" class="icon-link delete-icon">

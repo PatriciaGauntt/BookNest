@@ -18,7 +18,6 @@ export type SortableBookFields =
   styleUrl: './book-search.css',
 })
 export class BookSearch {
-
   router: Router = inject(Router);
   bookService: BookService = inject(BookService);
 
@@ -33,7 +32,6 @@ export class BookSearch {
   selectedLocation: string = '';
   searchTerm: string = '';
 
-  // ⭐ NEW ⭐
   isSearching = false;
 
   sortColumn: SortableBookFields | '' = '';
@@ -59,7 +57,7 @@ export class BookSearch {
   }
 
   //
-  // ⭐ SEARCH HANDLER — clean and correct
+  // SEARCH HANDLER
   //
   onSearchChange() {
     const hasSearch = this.searchTerm.trim() !== '';
@@ -76,7 +74,7 @@ export class BookSearch {
   }
 
   //
-  // ⭐ LOCATION HANDLER — clean and correct
+  // LOCATION HANDLER
   //
   onLocationChange() {
     const hasLocation = this.selectedLocation !== '';
@@ -93,7 +91,7 @@ export class BookSearch {
   }
 
   //
-  // ⭐ CLEAN FILTER LOGIC — your 3 rules
+  // CLEAN FILTER LOGIC
   //
   applyFilters() {
     let list = [...this.masterBooks];
@@ -112,17 +110,17 @@ export class BookSearch {
       );
     }
 
-    // 2. Location only
+    // Location only
     else if (!hasSearch && hasLocation) {
       list = list.filter(b => b.location === this.selectedLocation);
     }
 
-    // 3. Neither — show all (list untouched)
+    // Neither — show all
 
     this.fullResults = list;
     this.currentPage = 0;
 
-    // ⭐ NEW — track searching state ⭐
+    // Track searching state
     this.isSearching = hasSearch || hasLocation;
 
     this.applySorting();
@@ -130,7 +128,7 @@ export class BookSearch {
   }
 
   //
-  // ⭐ RESET BUTTON LOGIC
+  // RESET BUTTON LOGIC
   //
   resetFilters() {
     this.searchTerm = '';
@@ -173,7 +171,9 @@ export class BookSearch {
       return 0;
     });
   }
-
+  //
+  // PAGING
+  //
   applyPaging() {
     const start = this.currentPage * this.booksPerPage;
     const end = start + this.booksPerPage;

@@ -3,30 +3,39 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Book as BookType } from '../book'
 import { ActivatedRoute, RouterModule, Router } from '@angular/router';
 import { BookService } from '../book.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-book-create',
-  imports: [ReactiveFormsModule, RouterModule],
+  imports: [ReactiveFormsModule, RouterModule, CommonModule],
   templateUrl: './book-create.html',
-  styleUrl: './book-create.css',
+  styleUrls: ['./book-create.css'],
 })
+
+// POST book
 export class BookCreate {
   router: Router = inject(Router);
   bookService: BookService = inject(BookService);
+  showValidationModal = false;
   newBookForm = new FormGroup({
-      title: new FormControl(''),
-      author_first_name: new FormControl(''),
-      author_last_name: new FormControl(''),
-      publication_year: new FormControl(2011),
-      series_name: new FormControl(''),
-      location: new FormControl(''),
-      bookcase: new FormControl(0),
-      bookshelf: new FormControl(0),
-      imagePath: new FormControl(''),
-    });
+    title: new FormControl('', Validators.required),
+    author_first_name: new FormControl('', Validators.required),
+    author_last_name: new FormControl('', Validators.required),
+    publication_year: new FormControl(2011),
+    series_name: new FormControl(''),
+    location: new FormControl('', Validators.required),
+    bookcase: new FormControl(0),
+    bookshelf: new FormControl(0),
+    imagePath: new FormControl(''),
+  });
 
-  async createBook() {
-    const result = await this.bookService.createBook(this.newBookForm.value);
-    this.router.navigate([`books/${result.id}`]);
+async createBook() {
+  if (this.newBookForm.invalid) {
+    this.showValidationModal = true;
+    return;
   }
+}
+closeValidationModal() {
+  this.showValidationModal = false;
+}
 }

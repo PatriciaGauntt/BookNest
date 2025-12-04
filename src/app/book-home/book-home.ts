@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
   templateUrl: './book-home.html',
   styleUrl: './book-home.css',
 })
+// randomize home picture
 export class BookHome implements OnInit {
 
   images = [

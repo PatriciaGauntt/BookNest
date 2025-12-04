@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './book-comments.html',
   styleUrl: './book-comments.css',
 })
+// GET Comments
 export class BookComments {
   private bookService = inject(BookService);
   private route = inject(ActivatedRoute);
@@ -31,7 +32,7 @@ export class BookComments {
       this.loading = false;
     });
   }
-
+  // DETELE Comments
   deleteComment(commentId: string) {
     this.bookService.deleteComment(this.bookId, commentId)
       .then(() => {

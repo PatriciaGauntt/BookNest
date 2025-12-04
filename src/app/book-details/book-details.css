@@ -39,9 +39,9 @@
   box-sizing: border-box;
 }
 .cute-btn {
-  background-color: #e0e0e0;   /* gray */
+  background-color: #e0e0e0;
   border: 1px solid #ccc;
-  padding: 4px 15px;
+  padding: 4px 16.5px;
   border-radius: 6px;
   cursor: pointer;
   text-decoration: none;
@@ -49,6 +49,13 @@
   transition: background-color 0.25s ease, transform 0.2s ease;
 }
 .cute-btn:hover {
-  background-color: #f8b3e3;   /* pink */
+  background-color: #f8b3e3;
 }
 
+.btn-cancel {
+  background-color: #e0e0e0;
+  border: 1px solid #ccc;
+}
+.btn-cancel:hover {
+  background-color: #0d6efd;
+}

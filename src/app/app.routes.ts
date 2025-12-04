@@ -47,6 +47,6 @@ export const routes: Routes = [
   },
   {
     path: '_temp',
-    component: BookHome, // or a blank tiny component
+    component: BookHome, 
   },
 ];

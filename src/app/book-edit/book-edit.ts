@@ -17,7 +17,7 @@ export class BookEdit {
   bookId: string = '';
   currentBook!: BookType;
   bookEditForm!: FormGroup;
-
+// Populate book for edit
   constructor() {
     this.bookId = this.route.snapshot.params['id'];
     this.bookService.getBookById(this.bookId).then((book) => {
@@ -35,7 +35,7 @@ export class BookEdit {
     });
     });
   }
-
+// Update book
   async saveBook() {
     const updateBook: Book = this.bookEditForm.value;
     await this.bookService.updateBook(this.bookId, updateBook);

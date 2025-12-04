@@ -64,3 +64,6 @@ table.table.table-striped > tbody > tr:hover > td {
   cursor: not-allowed;
   pointer-events: none;
 }
+.btn-secondary:hover {
+  background-color: #5f24a2;
+}

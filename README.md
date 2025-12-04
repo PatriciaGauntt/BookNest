@@ -148,11 +148,6 @@ BookNest
 │  │  │  └─ book-search.ts
 │  │  ├─ book.service.ts
 │  │  ├─ book.ts
-│  │  └─ books
-│  │     ├─ books.css
-│  │     ├─ books.html
-│  │     ├─ books.spec.ts
-│  │     └─ books.ts
 │  ├─ index.html
 │  ├─ main.ts
 │  ├─ proxy.conf.json

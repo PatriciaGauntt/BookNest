@@ -19,6 +19,7 @@ export class BookDetails {
 
   showDeleteModal = false;
   commentPosted = false;
+  showDeleteSuccess = false;
 
   commentForm = new FormGroup({
     name: new FormControl(''),
@@ -61,9 +62,22 @@ export class BookDetails {
   }
   async deleteBook() {
     await this.bookService.deleteBook(this.bookId);
+
+    // Hide confirmation modal
     this.showDeleteModal = false;
+
+    // Show success popup
+    this.showDeleteSuccess = true;
+
+    // Auto-close after 3s and navigate away
+    setTimeout(() => {
+      this.showDeleteSuccess = false;
+      this.router.navigate(['/books/search']);
+    }, 3000);
+  }
+
+  closeSuccessModal() {
+    this.showDeleteSuccess = false;
     this.router.navigate(['/books/search']);
   }
 }
-
-
