@@ -83,9 +83,13 @@
     <button type="submit" class="cute-btn">Post Comment</button>
   </form>
 
-  <a class="btn btn-edit me-5 mt-2"
-     [routerLink]="['/books', currentBook.id, 'comments']">
-    View Comments
+  <a
+    class="btn btn-edit me-5 mt-2"
+  [routerLink]="currentBook.comments?.length ? ['/books', currentBook.id, 'comments'] : null"
+    [class.disabled]="!currentBook.comments?.length"
+    [attr.aria-disabled]="!currentBook.comments?.length"
+>
+    {{ currentBook.comments?.length ? 'View Comments' : 'No Comments Yet' }}
   </a>
 
 </div>
