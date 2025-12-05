@@ -28,7 +28,7 @@
 
       <div class="form-group">
         <label for="publication_year">Publication Year :</label>
-        <input id="publication_year" formControlName="publication_year" type="number" min="0">
+        <input id="publication_year" formControlName="publication_year" type="number" min="1000" max="2050">
       </div>
 
       <div class="form-group">
@@ -38,12 +38,12 @@
 
       <div class="form-group">
         <label for="bookcase">Book Case # :</label>
-        <input id="bookcase" formControlName="bookcase" type="number" min="0">
+        <input id="bookcase" formControlName="bookcase" type="number" min="0" max="20">
       </div>
 
       <div class="form-group">
         <label for="bookshelf">Book Shelf # :</label>
-        <input id="bookshelf" formControlName="bookshelf" type="number" min="0">
+        <input id="bookshelf" formControlName="bookshelf" type="number" min="0" max="10">
       </div>
 
       <div class="form-group">
@@ -60,6 +60,18 @@
   <img class="book-picture" [src]="currentBook.imagePath || '/images/detailsBookImage.jpg'">
 
 </div>
+@if (showEditValidationModal) {
+  <div class="modal-backdrop"></div>
+
+  <div class="delete-modal">
+    <h3 class="pacifico-heading">Missing Information</h3>
+    <p>Please fill out all required fields before updating.</p>
+
+    <div class="modal-buttons">
+      <button class="btn btn-details" (click)="closeEditValidationModal()">OK</button>
+    </div>
+  </div>
+}
 <div class="edit-buttons button-row">
   <button class="btn btn-edit" (click)="saveBook()">Update</button>
   <a class="btn btn-delete" [routerLink]="['/books/search']">Cancel</a>

@@ -1,5 +1,5 @@
 import { Component, inject, input } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Book as BookType } from '../book'
 import { ActivatedRoute, RouterModule, Router } from '@angular/router';
 import { BookService } from '../book.service';
@@ -21,9 +21,12 @@ export class BookDetails {
   commentPosted = false;
   showDeleteSuccess = false;
 
+  // Validation modal for comments
+  showCommentValidationModal = false;
+
   commentForm = new FormGroup({
-    name: new FormControl(''),
-    comment: new FormControl(''),
+    name: new FormControl('', Validators.required),
+    comment: new FormControl('', Validators.required),
   });
 
   constructor() {
@@ -34,6 +37,13 @@ export class BookDetails {
   }
 
   async submitComment() {
+
+    //Stop if invalid
+    if (this.commentForm.invalid) {
+      this.showCommentValidationModal = true;
+      return;
+    }
+
     await this.bookService.submitComment(
       this.bookId,
       this.commentForm.value.name ?? '',
@@ -54,6 +64,11 @@ export class BookDetails {
       this.commentPosted = false;
     }, 3000);
   }
+
+  closeCommentValidationModal() {
+    this.showCommentValidationModal = false;
+  }
+
   confirmDelete() {
     this.showDeleteModal = true;
   }
@@ -62,14 +77,9 @@ export class BookDetails {
   }
   async deleteBook() {
     await this.bookService.deleteBook(this.bookId);
-
-    // Hide confirmation modal
     this.showDeleteModal = false;
-
-    // Show success popup
     this.showDeleteSuccess = true;
 
-    // Auto-close after 3s and navigate away
     setTimeout(() => {
       this.showDeleteSuccess = false;
       this.router.navigate(['/books/search']);
@@ -81,3 +91,4 @@ export class BookDetails {
     this.router.navigate(['/books/search']);
   }
 }
+

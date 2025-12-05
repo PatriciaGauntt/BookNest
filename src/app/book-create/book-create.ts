@@ -34,6 +34,16 @@ async createBook() {
     this.showValidationModal = true;
     return;
   }
+
+  const newBook: BookType = this.newBookForm.value as BookType;
+
+  try {
+    const result = await this.bookService.createBook(newBook);
+    this.router.navigate([`/books/${result.id}`]);
+
+  } catch (error) {
+    console.error('Error creating book:', error);
+  }
 }
 closeValidationModal() {
   this.showValidationModal = false;
