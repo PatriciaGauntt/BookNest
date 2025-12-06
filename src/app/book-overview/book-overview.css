@@ -1,6 +1,6 @@
 .overview-picture {
-  max-width: 500px;
-  margin-bottom: 20px;
+  max-width: 600px;
+  margin-bottom: 10px;
 }
 .book-overview-container {
   display: flex;
@@ -8,8 +8,8 @@
   align-items: center;
   background-color: #f5ecff;
   border-radius: 20px;
-  padding: 30px;
-  margin-bottom: 30px;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 .overview-buttons {
   gap: 30px;

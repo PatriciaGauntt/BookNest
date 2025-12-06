@@ -13,6 +13,17 @@
 .nav-link.active {
   color: #de1bb0 !important;
 }
+nav.navbar {
+  padding-top: 0.25rem !important;
+  padding-bottom: 0. !important;
+}
+.navbar-brand img {
+  height: 32px;
+}
+.navbar-nav .nav-link {
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+}
 .divider {
   width: 2px;
   background: linear-gradient(

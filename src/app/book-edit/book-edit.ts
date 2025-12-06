@@ -17,6 +17,20 @@ export class BookEdit {
   bookId: string = '';
   currentBook!: BookType;
 
+  locations = [
+    'Master Bedroom',
+    'Living Room',
+    'Hallway Shelf of Shame',
+    'Great Room',
+    'School Room',
+    'Loft',
+    'Office',
+    'Dining',
+    'Bedroom 1',
+    'Bedroom 2',
+    'Bedroom 3',
+  ];
+
   // NEW — for popup modal
   showEditValidationModal = false;
 

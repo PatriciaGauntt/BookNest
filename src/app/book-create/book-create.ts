@@ -17,6 +17,21 @@ export class BookCreate {
   router: Router = inject(Router);
   bookService: BookService = inject(BookService);
   showValidationModal = false;
+
+locations = [
+  "Master Bedroom",
+  "Living Room",
+  "Hallway Shelf of Shame",
+  "Great Room",
+  "School Room",
+  "Loft",
+  "Office",
+  "Dining",
+  "Bedroom 1",
+  "Bedroom 2",
+  "Bedroom 3"
+];
+
   newBookForm = new FormGroup({
     title: new FormControl('', Validators.required),
     author_first_name: new FormControl('', Validators.required),
@@ -40,11 +55,11 @@ async createBook() {
   try {
     const result = await this.bookService.createBook(newBook);
     this.router.navigate([`/books/${result.id}`]);
-
   } catch (error) {
     console.error('Error creating book:', error);
   }
 }
+
 closeValidationModal() {
   this.showValidationModal = false;
 }
