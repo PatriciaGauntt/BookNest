@@ -31,6 +31,12 @@ Instructions on how to find the location and bookcase are detailed in the overvi
 Whether you’re browsing for a favorite story or tracking down a new one, BookNest turns our home into a gentle, guided wander through our personal library.
 Enjoy exploring—and happy reading!
 
+## 📘 BookNest Flow Diagram
+
+Here is the navigation flow for the BookNest application:
+
+![BookNest Flow Diagram](public/images/flowchart.jpg)
+
 ## Development server
 
 To start a local development server, run:
