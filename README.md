@@ -35,7 +35,7 @@ Enjoy exploring—and happy reading!
 
 Here is the navigation flow for the BookNest application:
 
-![BookNest Flow Diagram](public/images/flowchart.jpg)
+![BookNest Flow Diagram](https://github.com/your-username/your-repo/path/to/flowchart.jpg)
 
 ## Development server
 
