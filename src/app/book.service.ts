@@ -16,7 +16,35 @@ export class BookService {
     const data = await fetch(`${this.url}/${id}`);
     return (await data.json()) ?? {};
   }
-// POST comment
+  // Search book
+  async searchBooks(searchString: string): Promise<Book[]> {
+    console.error(`---> ${searchString}`);
+    const data = await fetch(`${this.url}?search=${searchString}`);
+    return (await data.json()) ?? [];
+  }
+  // DELETE book
+  async deleteBook(id: string): Promise<void> {
+    await fetch(`${this.url}/${id}`, {method: 'DELETE'});
+  }
+  // PATCH book
+  async updateBook(id: string, bookData: Book) {
+    await fetch(`${this.url}/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+       body: JSON.stringify(bookData),
+      });
+    }
+  // POST book
+  async createBook(book: CreateBook) {
+    const response = await fetch(this.url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(book),
+    });
+
+    return (await response.json()) ?? {};
+  }
+  // POST comment
   async submitComment(bookId: string, name: string, comment: string) {
     const commentPayload = {
       name,
@@ -43,33 +71,5 @@ export class BookService {
     }
 
     return response.json();
-  }
-  // Search book
-  async searchBooks(searchString: string): Promise<Book[]> {
-    console.error(`---> ${searchString}`);
-    const data = await fetch(`${this.url}?search=${searchString}`);
-    return (await data.json()) ?? [];
-  }
-  // DELETE book
-  async deleteBook(id: string): Promise<void> {
-    await fetch(`${this.url}/${id}`, {method: 'DELETE'});
-  }
-  // Update book
-  async updateBook(id: string, bookData: Book) {
-    await fetch(`${this.url}/${id}`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-       body: JSON.stringify(bookData),
-      });
-    }
-  // POST book
-  async createBook(book: CreateBook) {
-    const response = await fetch(this.url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(book),
-    });
-
-    return (await response.json()) ?? {};
   }
 }
