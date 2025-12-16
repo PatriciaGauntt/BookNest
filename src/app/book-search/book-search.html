@@ -13,7 +13,7 @@
          name="searchTerm"
          [disabled]="disableSearchBox" />
 
-  <!-- SEARCH BUTTON (kept, but now behaves correctly) -->
+  <!-- SEARCH BUTTON -->
   <button class="btn btn-primary ms-1"
         type="button"
         [disabled]="!searchTerm && !selectedLocation"
@@ -21,14 +21,23 @@
         {{ isSearching ? 'Reset for new Search' : 'Search' }}
   </button>
 
-  <div class="inline-float-right">
+  <div class="inline-float-right d-flex align-items-center">
+
+  <!-- FILTER BUTTON -->
+  <button class="btn btn-primary me-2"
+          type="button"
+          [disabled]="!selectedLocation"
+          (click)="isSearching ? resetFilters() : applyFilters()">
+    {{ isSearching && selectedLocation ? 'Reset for New Filter' : 'Filter' }}
+  </button>
 
     <!-- LOCATION FILTER -->
     <select class="form-select w-auto border-secondary"
             [(ngModel)]="selectedLocation"
             (change)="onLocationChange()"
             name="locationFilter"
-            [disabled]="disableLocationFilter">
+            [disabled]="disableLocationFilter"
+            aria-label="Filter books by location">
       <option value="">All Locations</option>
       @for (loc of allLocations; track loc) {
         <option [value]="loc">
@@ -44,6 +53,26 @@
 
 <section class="results">
 
+@if (fullResults.length === 0) {
+  <div class="empty-state">
+    <div class="empty-icon">✨</div>
+    <p>No books match your search yet.</p>
+
+    @if (isSearching) {
+      <p class="empty-hint">
+        Try adjusting your search or location filter.
+      </p>
+    } @else {
+      <p class="empty-subtext">
+        Your BookNest is empty. Start by adding your first book!
+      </p>
+      <a class="btn btn-details mt-2" routerLink="/books/new">
+        Add a Book
+      </a>
+    }
+  </div>
+}
+@if (fullResults.length > 0) {
   <table class="table table-hover table-striped table-bordered">
     <thead>
       <tr>
@@ -147,7 +176,7 @@
       }
     </tbody>
   </table>
-
+}
   <div class="d-flex justify-content-center mt-3">
     <button (click)="previousPage()"
             class="btn btn-secondary me-5"
@@ -155,6 +184,10 @@
             [disabled]="previousDisabled">
       Previous
     </button>
+
+    <span class="results-counter">
+      {{ resultsCounter }}
+    </span>
 
     <button (click)="nextPage()"
             class="btn btn-secondary ms-5"

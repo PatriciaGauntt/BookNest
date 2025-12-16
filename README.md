@@ -8,19 +8,29 @@ BookNest is the Angular-powered frontend for our home library catalog.
 It provides a clean, intuitive interface for browsing, searching, managing, and locating every book in our personal collection.
 The app communicates with an Express/MongoDB backend API to perform all CRUD operations.
 
-## Features
+## Key Features
 
-🔎 Search Books by title, series, or author
+🔎 Advanced Book Search & Filtering — search by title, author, or series and filter by room/location at the same time
 
-📘 View Detailed Book Information including room, bookcase, and shelf
+📊 Sortable & Paginated Results — sort books by title, author, or series (ascending/descending) and browse large collections with easy next/previous navigation
 
-✏️ Update and Manage Books directly from the UI
+📘 Detailed Book Views — see complete book information, including room, bookcase, and shelf location
 
-💬 Add and Delete Comments on individual books
+✏️ Create, Update, and Manage Books — add new books or edit existing entries directly from the UI
 
-📍 Location Mapping System to help you find exactly where a book lives
+💬 Book Comments System — add and delete comments on individual books
 
-🚀 Fully integrated with the BookNest backend API
+📍 Location Mapping System — a structured room, bookcase, and shelf system that helps you find exactly where a book lives
+
+🧭 Clear Navigation Flow — intuitive links between Home, Overview, Search, Details, Edit, and Comments
+
+⚠️ Inline Validation & User Feedback — helpful hints and messages guide users when required fields are missing
+
+♿ Accessibility-Friendly UI — semantic HTML and ARIA labels improve usability for screen readers
+
+🧼 Clean, Consistent UI Design — shared styles, themed colors, and reusable components across the app
+
+🚀 Fully Integrated Backend API — seamless communication with the BookNest backend for data persistence
 
 ## About the BookNest Project
 
@@ -31,7 +41,7 @@ Instructions on how to find the location and bookcase are detailed in the overvi
 Whether you’re browsing for a favorite story or tracking down a new one, BookNest turns our home into a gentle, guided wander through our personal library.
 Enjoy exploring—and happy reading!
 
-## 📘 BookNest Flow Diagram
+## 📘 Architecture Overview
 
 Here is the navigation flow for the BookNest application:
 
@@ -45,7 +55,7 @@ To start a local development server, run:
 ng serve
 ```
 
-<!---Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
 ## Code scaffolding
 
@@ -71,7 +81,7 @@ ng build
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
-## Running unit tests
+<!---## Running unit tests
 
 To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
@@ -87,11 +97,11 @@ For end-to-end (e2e) testing, run:
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.--->
 
 ## Additional Resources
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.--->
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
 ### Backend Setup (Express App)
 

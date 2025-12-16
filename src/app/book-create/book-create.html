@@ -8,16 +8,40 @@
         <div class="form-group">
           <label for="title">Title :</label>
           <input id="title" formControlName="title" type="text">
+          @if (
+            newBookForm.get('title')?.invalid &&
+            newBookForm.get('title')?.touched
+          ) {
+          <div class="validation-hint">
+            Title is required.
+          </div>
+          }
         </div>
 
         <div class="form-group">
           <label for="author_first_name">Author First Name :</label>
           <input id="author_first_name" formControlName="author_first_name" type="text">
+          @if (
+            newBookForm.get('author_first_name')?.invalid &&
+            newBookForm.get('author_first_name')?.touched
+          ) {
+          <div class="validation-hint">
+            Author's first name is required.
+          </div>
+          }
         </div>
 
         <div class="form-group">
           <label for="author_last_name">Author Last Name :</label>
           <input id="author_last_name" formControlName="author_last_name" type="text">
+          @if (
+            newBookForm.get('author_last_name')?.invalid &&
+            newBookForm.get('author_last_name')?.touched
+          ) {
+          <div class="validation-hint">
+            Author's last name is required.
+          </div>
+          }
         </div>
 
         <div class="form-group">
@@ -35,9 +59,17 @@
           <select id="location" formControlName="location">
             <option value="">-- Select a Room --</option>
               @for (loc of locations; track loc) {
-            <option [value]="loc">{{ loc }}</option>
-            }
+                <option [value]="loc">{{ loc }}</option>
+              }
           </select>
+          @if (
+            newBookForm.get('location')?.invalid &&
+            newBookForm.get('location')?.touched
+          ) {
+            <div class="validation-hint">
+              Please select a location.
+            </div>
+          }
         </div>
         <div class="form-group">
           <label for="bookcase">Book Case # :</label>

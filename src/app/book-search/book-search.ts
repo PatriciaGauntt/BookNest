@@ -60,16 +60,6 @@ export class BookSearch {
   // SEARCH HANDLER
   //
   onSearchChange() {
-    const hasSearch = this.searchTerm.trim() !== '';
-
-    if (hasSearch) {
-      this.selectedLocation = '';
-      this.disableLocationFilter = true;
-      this.disableSearchBox = false;
-    } else {
-      this.disableLocationFilter = false;
-    }
-
     this.applyFilters();
   }
 
@@ -77,16 +67,6 @@ export class BookSearch {
   // LOCATION HANDLER
   //
   onLocationChange() {
-    const hasLocation = this.selectedLocation !== '';
-
-    if (hasLocation) {
-      this.searchTerm = '';
-      this.disableSearchBox = true;
-      this.disableLocationFilter = false;
-    } else {
-      this.disableSearchBox = false;
-    }
-
     this.applyFilters();
   }
 
@@ -99,8 +79,8 @@ export class BookSearch {
     const hasSearch = this.searchTerm.trim() !== '';
     const hasLocation = this.selectedLocation !== '';
 
-    // 1. Search only
-    if (hasSearch && !hasLocation) {
+    // Search
+    if (hasSearch) {
       const regex = new RegExp(this.searchTerm, 'i');
       list = list.filter(b =>
         regex.test(b.title || '') ||
@@ -110,17 +90,13 @@ export class BookSearch {
       );
     }
 
-    // Location only
-    else if (!hasSearch && hasLocation) {
+    // Location
+    if (hasLocation) {
       list = list.filter(b => b.location === this.selectedLocation);
     }
 
-    // Neither — show all
-
     this.fullResults = list;
     this.currentPage = 0;
-
-    // Track searching state
     this.isSearching = hasSearch || hasLocation;
 
     this.applySorting();
@@ -133,18 +109,8 @@ export class BookSearch {
   resetFilters() {
     this.searchTerm = '';
     this.selectedLocation = '';
-
-    this.disableSearchBox = false;
-    this.disableLocationFilter = false;
-
-    // search mode off
     this.isSearching = false;
-
-    // Reapply filters (show all)
     this.applyFilters();
-
-    this.currentPage = 0;
-    this.applyPaging();
   }
 
   //
@@ -197,5 +163,21 @@ export class BookSearch {
     this.applyPaging();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+  //
+  // COUNTING
+  //
+  get resultsCounter(): string {
+  if (this.fullResults.length === 0) {
+    return '0 of 0';
+  }
+
+  const start = this.currentPage * this.booksPerPage + 1;
+  const end = Math.min(
+    start + this.pagedResults.length - 1,
+    this.fullResults.length
+  );
+
+  return `${start}-${end} of ${this.fullResults.length}`;
+}
 }
 
