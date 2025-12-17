@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Book as BookType } from '../book'
-import { ActivatedRoute, RouterModule, Router } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { BookService } from '../book.service';
 import { CommonModule } from '@angular/common';
 

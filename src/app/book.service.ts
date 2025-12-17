@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Book, CreateBook } from './book'
-import { BookOverview } from './book-overview/book-overview';
+import { Book as BookType } from './book';
 @Injectable({
   providedIn: 'root',
 })
@@ -68,6 +68,16 @@ export class BookService {
 
     if (!response.ok) {
       throw new Error('Failed to delete comment');
+    }
+
+    return response.json();
+  }
+  // GET book by ISBN
+  async lookupBookByISBN(isbn: string): Promise<Partial<BookType>> {
+    const response = await fetch(`${this.url}/isbn/${isbn}`);
+
+    if (!response.ok) {
+      throw new Error('ISBN lookup failed');
     }
 
     return response.json();

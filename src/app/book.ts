@@ -8,6 +8,7 @@ export interface Book {
   location: string;
   bookcase: number;
   bookshelf: number;
+  isbn: string;
   imagePath: string;
 
   comments?: {
@@ -26,5 +27,6 @@ export interface CreateBook {
   location? : string | null;
   bookcase? : number | null;
   bookshelf? : number | null;
+  isbn? : string | null;
   imagePath? : string | null;
 }

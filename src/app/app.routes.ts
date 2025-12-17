@@ -6,6 +6,7 @@ import { BookCreate } from './book-create/book-create';
 import { BookHome } from './book-home/book-home';
 import { BookOverview } from './book-overview/book-overview';
 import { BookComments } from './book-comments/book-comments';
+import { BookIsbnLookup } from './book-isbn-lookup/book-isbn-lookup';
 
 export const routes: Routes = [
   {
@@ -31,6 +32,11 @@ export const routes: Routes = [
     title: 'Book Create',
   },
   {
+    path: 'books/isbn',
+    component: BookIsbnLookup,
+    title: 'Book ISBN Lookup',
+  },
+  {
     path: 'books/:id',
     component: BookDetails,
     title: 'Book Details',
@@ -47,6 +53,6 @@ export const routes: Routes = [
   },
   {
     path: '_temp',
-    component: BookHome, 
+    component: BookHome,
   },
 ];

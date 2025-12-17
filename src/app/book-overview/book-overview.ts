@@ -1,5 +1,4 @@
 import { Component, input } from '@angular/core';
-import { Book as BookType } from '../book';
 import { RouterModule } from '@angular/router';
 
 @Component({
