@@ -93,17 +93,17 @@
   </div>
 
     @if (showValidationModal) {
-    <div class="modal-backdrop"></div>
+      <div class="modal-backdrop"></div>
 
-    <div class="delete-modal">
-      <h3 class="pacifico-heading">Missing Information</h3>
-      <p>Please fill out all required fields before saving.</p>
+      <div class="delete-modal">
+        <h3 class="pacifico-heading">Missing Information</h3>
+        <p>Please fill out all required fields before saving.</p>
 
-      <div class="modal-buttons">
-        <button class="btn btn-details" (click)="closeValidationModal()">OK</button>
+        <div class="modal-buttons">
+          <button class="btn btn-details" (click)="closeValidationModal()">OK</button>
+        </div>
       </div>
-    </div>
-  }
+    }
 
   <div class="button-row home-buttons">
     <button class="btn btn-details" (click)="createBook()">Save</button>

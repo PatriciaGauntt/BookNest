@@ -159,8 +159,8 @@
           ? (result.title | slice:0:38) + '...'
           : result.title
         }}</td>
-        <td>{{ result.author_last_name }}</td>
-        <td>{{ result.author_first_name }}</td>
+        <td>{{ result.author_last_name !== 'NA' ? result.author_last_name : '' }}</td>
+        <td>{{ result.author_first_name !== 'NA' ? result.author_first_name : '' }}</td>
         <td> {{
           (result.series_name || '').length > 30
           ? ((result.series_name || '') | slice:0:30) + '...'

@@ -56,9 +56,6 @@ table.table.table-striped > tbody > tr:hover > td {
 .filter-container select {
   min-width: 180px;
 }
-.book-search h2 {
-  text-align: center;
-}
 .disabled {
   opacity: 0.4;
   cursor: not-allowed;

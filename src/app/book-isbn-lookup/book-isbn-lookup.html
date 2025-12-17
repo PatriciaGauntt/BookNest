@@ -2,7 +2,7 @@
   <h3 class="pacifico-heading">Add a book to Our BookNest by ISBN</h3>
 
   <!-- ISBN Lookup -->
-  <form [formGroup]="isbnForm" (ngSubmit)="lookupISBN()" class="isbn-lookup">
+  <form [formGroup]="isbnForm" (ngSubmit)="lookupISBN()" class="isbn-lookup mb-2">
     <input
       type="text"
       class="form-control d-inline w-50 border border-1 border-secondary"
@@ -29,7 +29,7 @@
     <div class="create">
     <span class="not-required-note">update required fields</span>
       @if (bookForm.enabled) {
-        <form [formGroup]="bookForm" class="mt-4">
+        <form [formGroup]="bookForm">
 
             <div class="form-group">
               <label for="isbn">ISBN :</label>
@@ -120,11 +120,22 @@
       </form>
   }
       <span class="not-required-note">* not required</span>
+      @if (showValidationModal) {
+        <div class="modal-backdrop"></div>
 
+        <div class="delete-modal">
+          <h3 class="pacifico-heading">Missing Information</h3>
+          <p>Please fill out all required fields before saving.</p>
+
+          <div class="modal-buttons">
+            <button class="btn btn-details" (click)="closeValidationModal()">OK</button>
+          </div>
+        </div>
+      }
+  </div>
+  </div>
       <div class="button-row home-buttons">
         <button class="btn btn-details" (click)="createBook()">Save</button>
         <a class="btn btn-delete" [routerLink]="['/books/search']">Cancel</a>
       </div>
-</div>
-
 

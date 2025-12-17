@@ -152,6 +152,11 @@ BookNest
 │  │  │  ├─ book-home.html
 │  │  │  ├─ book-home.spec.ts
 │  │  │  └─ book-home.ts
+│  │  ├─ book-isbn-lookup
+│  │  │  ├─ book-isbn-lookup.css
+│  │  │  ├─ book-isbn-lookup.html
+│  │  │  ├─ book-isbn-lookup.spec.ts
+│  │  │  └─ book-isbn-lookup.ts
 │  │  ├─ book-overview
 │  │  │  ├─ book-overview.css
 │  │  │  ├─ book-overview.html

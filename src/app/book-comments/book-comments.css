@@ -20,9 +20,6 @@ table.table.table-striped > tbody > tr:nth-of-type(odd) > td {
 table.table.table-striped > tbody > tr:hover > td {
   background-color: #f8b3e3 !important;
 }
-.book-search h3 {
-  text-align: center;
-}
 .results {
   padding: 15px;
 }

@@ -24,6 +24,32 @@ nav.navbar {
   padding-top: 0.25rem !important;
   padding-bottom: 0.25rem !important;
 }
+.dropdown-menu {
+  border-radius: 12px;
+}
+
+.dropdown-item:hover {
+  background-color: #f8b3e3  !important; /* soft lavender */
+}
+.delete-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 300px;
+  text-align: center;
+  z-index: 20;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
 .divider {
   width: 2px;
   background: linear-gradient(
@@ -97,7 +123,7 @@ orm-group {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 0px !important;
 }
 .book-details-container {
   text-align: left;
@@ -137,6 +163,13 @@ table.table.table-striped > tbody > tr:nth-of-type(odd) {
   -webkit-text-fill-color: transparent;
   margin-bottom: 5px;
 }
+.book-search h3 {
+  text-align: center;
+  margin-top: 0;
+}
+.book-search h2 {
+  text-align: center;
+}
 .rounded-shadow-img {
   width: 100%;
   border-radius: 16px;
@@ -149,3 +182,5 @@ table.table.table-striped > tbody > tr:nth-of-type(odd) {
   justify-content: center;
   margin-top: 5px;
 }
+
+

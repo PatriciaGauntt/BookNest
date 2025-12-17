@@ -21,14 +21,36 @@
         <a class="nav-link" routerLink="/books/overview" routerLinkActive="active-link">Nest Overview</a>
       </li>
       <li class="nav-item">
-        <a (click)="reloadSearch()" class="nav-link" routerLink="/books/search" routerLinkActive="active-link">Book Search</a>
+        <a (click)="reloadSearch()" class="nav-link" routerLink="/books/search" routerLinkActive="active-link">BookNest Search</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/books/new" routerLinkActive="active-link">Add Book</a>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false">
+          Add Book
+        </a>
+
+        <ul class="dropdown-menu">
+          <li>
+            <a
+              class="dropdown-item"
+              [routerLink]="['/books/new']">
+              Add Manually
+            </a>
+          </li>
+          <li>
+            <a
+              class="dropdown-item"
+              [routerLink]="['/books/isbn']">
+              Add by ISBN
+            </a>
+          </li>
+        </ul>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/books/isbn" routerLinkActive="active-link">Add Book by ISBN</a>
-      </li>
+
       </ul>
     </div>
   </div>
