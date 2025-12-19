@@ -1,0 +1,89 @@
+.resume-title-h4 {
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #c93d9f; /* matches your purple theme */
+}
+.resume-title-h5 {
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #5b2c83; /* matches your purple theme */
+}
+.resume-text {
+  font-size: 0.8rem;
+}
+.book-contact-resume {
+  text-align: center;
+}
+.book-contact-resume .resume-text {
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* construction */
+.construction-wrapper {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.construction-icon {
+  font-size: 6rem;
+  animation:
+    bounce 1.2s infinite ease-in-out,
+    wobble 2.5s infinite ease-in-out,
+    glow 2s infinite alternate;
+}
+
+/* Big bounce */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+/* Side-to-side wobble */
+@keyframes wobble {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-8deg); }
+  50% { transform: rotate(8deg); }
+  75% { transform: rotate(-4deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* Purple-pink glow */
+@keyframes glow {
+  from {
+    text-shadow:
+      0 0 10px #ff77cc,
+      0 0 20px #c77dff,
+      0 0 30px #9d4edd;
+  }
+  to {
+    text-shadow:
+      0 0 20px #ff99dd,
+      0 0 35px #e0aaff,
+      0 0 50px #7b2cbf;
+  }
+}
+
+.construction-text {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #7b2cbf;
+  animation: textPulse 1.5s infinite;
+}
+
+@keyframes textPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+

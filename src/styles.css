@@ -118,6 +118,13 @@ orm-group {
   background-color: #de1bb0;
   color: #4055e0;
 }
+.btn-details {
+  transition: background-color 0.15s ease;
+}
+
+.btn-details:active {
+  transition: none;
+}
 .create-container {
   display: flex;
   flex-direction: column;
