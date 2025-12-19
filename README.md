@@ -1,10 +1,8 @@
 # BookNest
----
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.8.
 
 ## About the BookNest Project
----
 
 Welcome to Our BookNest—a warm, digital extension of the bookshelves in our home. Every location corresponds to a real room, and each bookshelf inside those rooms has been carefully numbered. This simple system lets you find any book by matching its room and shelf number to the map.
 
@@ -14,14 +12,12 @@ Whether you’re browsing for a favorite story or tracking down a new one, BookN
 Enjoy exploring—and happy reading!
 
 ## BookNest – Angular Frontend
----
 
 BookNest is the Angular-powered frontend for our home library catalog.
 It provides a clean, intuitive interface for browsing, searching, managing, and locating every book in our personal collection.
 The app communicates with an Express/MongoDB backend API to perform all CRUD operations.
 
 ## Key Features
-***
 
 🔎 Advanced Book Search & Filtering — search by title, author, or series and filter by room/location at the same time
 
