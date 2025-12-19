@@ -2,6 +2,15 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.8.
 
+## About the BookNest Project
+
+Welcome to Our BookNest—a warm, digital extension of the bookshelves in our home. Every location corresponds to a real room, and each bookshelf inside those rooms has been carefully numbered. This simple system lets you find any book by matching its room and shelf number to the map.
+
+Instructions on how to find the location and bookcase are detailed in the overview page. Just locate the room, follow the numbering path around the walls, and you’ll always know exactly where a book belongs.
+
+Whether you’re browsing for a favorite story or tracking down a new one, BookNest turns our home into a gentle, guided wander through our personal library.
+Enjoy exploring—and happy reading!
+
 ## BookNest – Angular Frontend
 
 BookNest is the Angular-powered frontend for our home library catalog.
@@ -32,14 +41,25 @@ The app communicates with an Express/MongoDB backend API to perform all CRUD ope
 
 🚀 Fully Integrated Backend API — seamless communication with the BookNest backend for data persistence
 
-## About the BookNest Project
+## BookNest – Technology Stack
 
-Welcome to Our BookNest—a warm, digital extension of the bookshelves in our home. Every location corresponds to a real room, and each bookshelf inside those rooms has been carefully numbered. This simple system lets you find any book by matching its room and shelf number to the map.
+  Frontend
+    - Angular — component-based framework
+    - TypeScript — strongly typed JavaScript
+    - HTML5 — semantic markup 
+    - CSS3 — custom styling and layout
+    - Bootstrap 5 — responsive UI components
+  
+  Backend
+    - Node.js — JavaScript runtime
+    - Express.js — REST API framework
+    - MongoDB — document-based database
+    - ES6+ JavaScript — core application logic
 
-Instructions on how to find the location and bookcase are detailed in the overview page. Just locate the room, follow the numbering path around the walls, and you’ll always know exactly where a book belongs.
-
-Whether you’re browsing for a favorite story or tracking down a new one, BookNest turns our home into a gentle, guided wander through our personal library.
-Enjoy exploring—and happy reading!
+  Architecture & Patterns
+    - RESTful API — GET, POST, PUT, DELETE
+    - MEAN-style architecture
+    - Client–Server separation
 
 ## 📘 Architecture Overview
 

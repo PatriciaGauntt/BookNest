@@ -1,0 +1,30 @@
+.book-stack h1 {
+  text-align: center;
+}
+.tech-stack-container {
+  margin-top: 2rem;
+}
+
+.tech-tile {
+  background: #f5ecff;
+  border-radius: 16px;
+  padding: 20px;
+  height: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.tech-title {
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #5b2c83; /* matches your purple theme */
+}
+
+.tech-tile ul {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.tech-tile li {
+  margin-bottom: 6px;
+  font-size: 0.8rem;
+}

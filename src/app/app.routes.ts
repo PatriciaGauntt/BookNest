@@ -5,6 +5,7 @@ import { BookEdit } from './book-edit/book-edit'
 import { BookCreate } from './book-create/book-create';
 import { BookHome } from './book-home/book-home';
 import { BookOverview } from './book-overview/book-overview';
+import { BookStack } from './book-stack/book-stack';
 import { BookComments } from './book-comments/book-comments';
 import { BookIsbnLookup } from './book-isbn-lookup/book-isbn-lookup';
 
@@ -21,10 +22,15 @@ export const routes: Routes = [
     title: 'Book Search',
     runGuardsAndResolvers: 'always',
   },
-    {
+  {
     path: 'books/overview',
     component: BookOverview,
     title: 'Book Overview',
+  },
+  {
+    path: 'books/stack',
+    component: BookStack,
+    title: 'Book Stack',
   },
   {
     path: 'books/new',
