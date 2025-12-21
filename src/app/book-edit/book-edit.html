@@ -1,3 +1,6 @@
+@if (currentBook) {
+
+<div class="details-container">
 <h3 class="pacifico-heading"><em>{{ currentBook.title }}</em> Edit</h3>
 <div class="book-details-container">
 
@@ -111,3 +114,5 @@
   <button class="btn btn-edit" (click)="saveBook()">Update</button>
   <a class="btn btn-delete" [routerLink]="['/books/search']">Cancel</a>
 </div>
+</div>
+}
