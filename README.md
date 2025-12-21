@@ -182,11 +182,21 @@ BookNest
 │  │  │  ├─ book-overview.html
 │  │  │  ├─ book-overview.spec.ts
 │  │  │  └─ book-overview.ts
+│  │  ├─ book-resume
+│  │  │  ├─ book-resume.css
+│  │  │  ├─ book-resume.html
+│  │  │  ├─ book-resume.spec.ts
+│  │  │  └─ book-resume.ts
 │  │  ├─ book-search
 │  │  │  ├─ book-search.css
 │  │  │  ├─ book-search.html
 │  │  │  ├─ book-search.spec.ts
 │  │  │  └─ book-search.ts
+│  │  ├─ book-stack
+│  │  │  ├─ book-stack.css
+│  │  │  ├─ book-stack.html
+│  │  │  ├─ book-stack.spec.ts
+│  │  │  └─ book-stack.ts
 │  │  ├─ book.service.ts
 │  │  ├─ book.ts
 │  ├─ index.html

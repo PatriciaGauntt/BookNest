@@ -189,5 +189,7 @@ table.table.table-striped > tbody > tr:nth-of-type(odd) {
   justify-content: center;
   margin-top: 5px;
 }
-
+.home-buttons {
+  gap: 40px;
+}
 

@@ -3,20 +3,33 @@
 }
 .tech-stack-container {
   margin-top: 2rem;
+  position: relative;
+  overflow: hidden;
+  padding: 3rem 1rem;
+  min-height: 350px;
+}
+.tech-content {
+  position: relative;
+  z-index: 2;
 }
 
 .tech-tile {
   background: #f5ecff;
   border-radius: 16px;
+  z-index: 3;
   padding: 20px;
   height: 100%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  isolation: isolate;
+  position: relative;
 }
 
 .tech-title {
   font-weight: 600;
   margin-bottom: 12px;
-  color: #5b2c83; /* matches your purple theme */
+  color: #5b2c83;
+  position: relative;
+  z-index: 2;
 }
 
 .tech-tile ul {
@@ -28,3 +41,46 @@
   margin-bottom: 6px;
   font-size: 0.8rem;
 }
+.floating-images {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.float-img {
+  position: absolute;
+  width: 120px;
+  opacity: 0.15;
+  filter: blur(0.5px);
+  animation-name: floatAround;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.img-1 { top: 10%; left: 5%; animation-duration: 40s; }
+.img-2 { top: 60%; left: 70%; animation-duration: 45s; }
+.img-3 { top: 30%; left: 40%; animation-duration: 50s; }
+.img-4 { top: 80%; left: 20%; animation-duration: 38s; }
+.img-5 { top: 10%; right: 40%; animation-duration: 40s; }
+.img-6 { top: 70%; right: 30%; animation-duration: 55s; }
+.img-7 { top: 30%; right: 70%; animation-duration: 50s; }
+.img-8 { top: 10%; left: 70%; animation-duration: 48s; }
+.img-9 { top: 20%; left: 60%; animation-duration: 48s; }
+@keyframes floatAround {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(200px, -150px) rotate(20deg);
+  }
+  50% {
+    transform: translate(-250px, 200px) rotate(-20deg);
+  }
+  75% {
+    transform: translate(150px, 250px) rotate(15deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
