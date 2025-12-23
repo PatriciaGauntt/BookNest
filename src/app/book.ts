@@ -10,6 +10,7 @@ export interface Book {
   bookshelf: number;
   isbn: string;
   imagePath: string;
+  isPotentialDuplicate?: boolean;
 
   comments?: {
     name: string;
@@ -29,4 +30,5 @@ export interface CreateBook {
   bookshelf? : number | null;
   isbn? : string | null;
   imagePath? : string | null;
+  isPotentialDuplicate?: boolean; 
 }

@@ -155,10 +155,20 @@
     <tbody>
       @for (result of pagedResults; track result.id) {
       <tr>
-        <td>{{ result.title.length > 38
+        <td class="position-relative">
+         <span class="book-title">
+        {{ result.title.length > 38
           ? (result.title | slice:0:38) + '...'
           : result.title
-        }}</td>
+        }}
+        </span>
+
+        @if (result.isPotentialDuplicate) {
+          <span class="duplicate-badge ms-2">
+            👀 Looks Familiar
+          </span>
+        }
+        </td>
         <td>{{ result.author_last_name !== 'NA' ? result.author_last_name : '' }}</td>
         <td>{{ result.author_first_name !== 'NA' ? result.author_first_name : '' }}</td>
         <td> {{

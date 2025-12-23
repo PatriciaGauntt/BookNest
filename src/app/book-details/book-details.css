@@ -45,4 +45,10 @@ a.disabled {
   opacity: 0.5;
   cursor: default;
 }
-
+.duplicate-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+}

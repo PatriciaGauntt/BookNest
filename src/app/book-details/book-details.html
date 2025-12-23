@@ -4,6 +4,11 @@
 
   <h3 class="pacifico-heading">
     <em>{{ currentBook.title }}</em> Details
+    @if (currentBook.isPotentialDuplicate) {
+      <span class="badge duplicate-badge ms-2">
+        Possible Duplicate
+      </span>
+    }
   </h3>
 
   <div class="book-details-container">
