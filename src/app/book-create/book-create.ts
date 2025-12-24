@@ -36,6 +36,7 @@ locations = [
     title: new FormControl('', Validators.required),
     author_first_name: new FormControl('', Validators.required),
     author_last_name: new FormControl('', Validators.required),
+    edition_notes: new FormControl(''),
     publication_year: new FormControl(2011),
     series_name: new FormControl(''),
     location: new FormControl('', Validators.required),

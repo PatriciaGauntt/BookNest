@@ -45,6 +45,7 @@ export class BookIsbnLookup {
     title: new FormControl('', Validators.required),
     author_first_name: new FormControl(''),
     author_last_name: new FormControl('', Validators.required),
+    edition_note: new FormControl(''),
     publication_year: new FormControl<number | null>(null),
     series_name: new FormControl(''),
     location: new FormControl('', Validators.required),
@@ -69,6 +70,7 @@ export class BookIsbnLookup {
         title: result.title ?? '',
         author_first_name: result.author_first_name ?? '',
         author_last_name: result.author_last_name ?? '',
+        edition_note: result.edition_note ?? '',
         publication_year: result.publication_year ?? null,
         series_name: result.series_name ?? '',
         imagePath: result.imagePath ?? ''

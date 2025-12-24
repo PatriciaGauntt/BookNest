@@ -47,6 +47,7 @@ export class BookEdit {
         author_first_name: new FormControl(this.currentBook.author_first_name, Validators.required),
         author_last_name: new FormControl(this.currentBook.author_last_name, Validators.required),
         publication_year: new FormControl(this.currentBook.publication_year),
+        edition_note: new FormControl(this.currentBook.edition_note ?? ''),
         series_name: new FormControl(this.currentBook.series_name ?? ''),
         location: new FormControl(this.currentBook.location, Validators.required),
         bookcase: new FormControl(this.currentBook.bookcase),

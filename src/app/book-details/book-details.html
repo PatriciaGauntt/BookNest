@@ -6,7 +6,7 @@
     <em>{{ currentBook.title }}</em> Details
     @if (currentBook.isPotentialDuplicate) {
       <span class="badge duplicate-badge ms-2">
-        Possible Duplicate
+        Familiar Feather - Compare Editions in Nest
       </span>
     }
   </h3>
@@ -20,10 +20,12 @@
         {{ currentBook.author_first_name !== 'NA' ? currentBook.author_first_name : '' }}
       </div>
       <div><span>Series Name :</span> {{ currentBook.series_name }} </div>
+      <div><span>Edition Information :</span> {{ currentBook.edition_note }} </div>
       <div><span>Publication Year :</span> {{ currentBook.publication_year }} </div>
       <div><span>Book Location :</span> {{ currentBook.location }} </div>
       <div><span>Book Case # :</span> {{ currentBook.bookcase }} </div>
       <div><span>Book Shelf # :</span> {{ currentBook.bookshelf }} </div>
+      <div><span>ISBN :</span> {{ currentBook.isbn }} </div>
 
       <a class="btn btn-edit me-5 mt-2"
          [routerLink]="['/books/edit', currentBook.id]">
