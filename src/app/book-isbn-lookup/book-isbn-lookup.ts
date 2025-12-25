@@ -93,7 +93,7 @@ export class BookIsbnLookup {
 
     try {
       const result = await this.bookService.createBook(newBook);
-      this.router.navigate([`/books/${result.id}`]);
+      this.router.navigate([`/books/${result.book.id}`]);
     } catch (error) {
       console.error('Error creating book from ISBN:', error);
     }

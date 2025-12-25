@@ -36,7 +36,7 @@ locations = [
     title: new FormControl('', Validators.required),
     author_first_name: new FormControl('', Validators.required),
     author_last_name: new FormControl('', Validators.required),
-    edition_notes: new FormControl(''),
+    edition_note: new FormControl(''),
     publication_year: new FormControl(2011),
     series_name: new FormControl(''),
     location: new FormControl('', Validators.required),
@@ -55,7 +55,7 @@ async createBook() {
 
   try {
     const result = await this.bookService.createBook(newBook);
-    this.router.navigate([`/books/${result.id}`]);
+    this.router.navigate([`/books/${result.book.id}`]);
   } catch (error) {
     console.error('Error creating book:', error);
   }
