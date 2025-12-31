@@ -4,6 +4,7 @@ import { BookDetails } from './book-details/book-details'
 import { BookEdit } from './book-edit/book-edit'
 import { BookCreate } from './book-create/book-create';
 import { BookHome } from './book-home/book-home';
+import { BookFeedback} from './book-feedback/book-feedback';
 import { BookOverview } from './book-overview/book-overview';
 import { BookResume } from './book-resume/book-resume';
 import { BookStack } from './book-stack/book-stack';
@@ -37,6 +38,11 @@ export const routes: Routes = [
     path: 'books/resume',
     component: BookResume,
     title: 'Book Resume',
+  },
+  {
+    path: 'books/feedback',
+    component: BookFeedback,
+    title: 'Book Feedback',
   },
   {
     path: 'books/new',

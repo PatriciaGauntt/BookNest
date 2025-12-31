@@ -167,6 +167,11 @@ BookNest
 │  │  │  ├─ book-edit.html
 │  │  │  ├─ book-edit.spec.ts
 │  │  │  └─ book-edit.ts
+│  │  ├─ book-feedback
+│  │  │  ├─ book-feedback.css
+│  │  │  ├─ book-feedback.html
+│  │  │  ├─ book-feedback.spec.ts
+│  │  │  └─ book-feedback.ts
 │  │  ├─ book-home
 │  │  │  ├─ book-home.css
 │  │  │  ├─ book-home.html
@@ -199,6 +204,8 @@ BookNest
 │  │  │  └─ book-stack.ts
 │  │  ├─ book.service.ts
 │  │  ├─ book.ts
+│  │  ├─ feedback.service.ts
+│  │  ├─ feedback.ts
 │  ├─ index.html
 │  ├─ main.ts
 │  ├─ proxy.conf.json

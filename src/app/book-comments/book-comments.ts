@@ -3,8 +3,6 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { BookService } from '../book.service';
 import { Book as BookType } from '../book';
 import { CommonModule } from '@angular/common';
-//import { FormsModule } from '@angular/forms';
-
 @Component({
   selector: 'app-book-comments',
   standalone: true,

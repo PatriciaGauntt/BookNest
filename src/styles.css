@@ -145,7 +145,7 @@ input:-webkit-autofill {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 7px;
+  margin-top: 6px;
 }
 table.table.table-striped > tbody > tr:nth-of-type(odd) {
   background-color: #f5ecff;
