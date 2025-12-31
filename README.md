@@ -41,6 +41,13 @@ The app communicates with an Express/MongoDB backend API to perform all CRUD ope
 
 🚀 Fully Integrated Backend API — seamless communication with the BookNest backend for data persistence
 
+💡 Feedback & Suggestions Page - BookNest includes a dedicated Feedback page that allows users to share ideas, feature requests, and general suggestions to help improve the application over time.
+
+- Feedback data is managed through the backend Feedback API
+
+- Feedback is stored in its own MongoDB collection, separate from books and comments
+
+
 ## BookNest – Technology Stack
 
   Frontend

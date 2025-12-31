@@ -87,3 +87,25 @@ table.table.table-striped > tbody > tr:hover > td {
 td {
   vertical-align: middle;
 }
+.empty-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.empty-state {
+  text-align: center;
+  margin: 3rem 0;
+  color: #5f24a2;
+}
+.cute-btn {
+  background-color: #f8b3e3;
+  border: 1px solid #ccc;
+  padding: 4px 16.5px;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+.cute-btn:hover {
+  background-color: #de1bb0;
+}

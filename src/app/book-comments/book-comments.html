@@ -23,7 +23,8 @@
           <td>{{ c.comment }}</td>
           <td>{{ c.commentDate | date:'short' }}</td>
           <td class="text-center">
-            <a (click)="deleteComment(c.commentId)" class="icon-link delete-icon">
+            <a (click)="deleteComment(c.commentId)"
+              class="icon-link delete-icon">
               🧹
             </a>
           </td>
