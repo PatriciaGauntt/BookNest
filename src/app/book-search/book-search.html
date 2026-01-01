@@ -178,7 +178,7 @@
           }}
         </td>
         <td class="text-center">
-          <a [routerLink]="['/books', result.id]" class="icon-link">
+          <a [routerLink]="['/books', result.id]" [queryParamsHandling]="'preserve'" class="icon-link">
             🔍
           </a>
         </td>

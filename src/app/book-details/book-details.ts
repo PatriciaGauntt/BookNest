@@ -21,6 +21,8 @@ export class BookDetails {
   commentPosted = false;
   showDeleteSuccess = false;
 
+  searchParams: any = {};
+
   // Validation modal for comments
   showCommentValidationModal = false;
 
@@ -31,9 +33,13 @@ export class BookDetails {
 
   constructor() {
     this.bookId = this.route.snapshot.params['id'];
+    this.searchParams = { ...this.route.snapshot.queryParams };
     this.bookService.getBookById(this.bookId).then((book) => {
       this.currentBook = book;
     });
+  }
+  backToSearch() {
+    window.history.back();
   }
 
   async submitComment() {
@@ -82,13 +88,17 @@ export class BookDetails {
 
     setTimeout(() => {
       this.showDeleteSuccess = false;
-      this.router.navigate(['/books/search']);
+      this.router.navigate(['/books/search'], {
+        queryParams: this.searchParams
+      });
     }, 3000);
   }
 
   closeSuccessModal() {
     this.showDeleteSuccess = false;
-    this.router.navigate(['/books/search']);
+    this.router.navigate(['/books/search'], {
+      queryParams: this.searchParams
+    });
   }
 }
 

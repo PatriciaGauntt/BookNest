@@ -1,7 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Book as BookType } from '../book';
-import { RouterModule, Router } from '@angular/router';
+import { ActivatedRoute, RouterModule, Router } from '@angular/router';
 import { BookService } from '../book.service';
 import { FormsModule } from '@angular/forms';
 
@@ -13,12 +13,15 @@ export type SortableBookFields =
 
 @Component({
   selector: 'app-book-search',
+  standalone: true,
   imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './book-search.html',
   styleUrl: './book-search.css',
 })
-export class BookSearch {
+export class BookSearch implements OnInit {
+
   router: Router = inject(Router);
+  route: ActivatedRoute = inject(ActivatedRoute);
   bookService: BookService = inject(BookService);
 
   disableLocationFilter = false;
@@ -42,44 +45,52 @@ export class BookSearch {
   previousDisabled = true;
   nextDisabled = false;
 
-  constructor() {
-    this.loadAllBooks();
+  constructor() {}
+
+  // --------------------------------------------------
+  // RESTORE STATE FROM URL
+  // --------------------------------------------------
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.searchTerm = params['search'] ?? '';
+      this.selectedLocation = params['room'] ?? '';
+      this.sortColumn = params['sort'] ?? '';
+      this.sortDirection = params['dir'] ?? 'asc';
+
+      this.loadAllBooks();
+    });
   }
 
   async loadAllBooks() {
     this.masterBooks = await this.bookService.getBooks(0, 5000);
     this.extractLocations();
-    this.applyFilters();
+    this.applyFilters(false);
   }
 
   extractLocations() {
     this.allLocations = [...new Set(this.masterBooks.map(b => b.location))].sort();
   }
 
-  //
-  // SEARCH HANDLER
-  //
+  // --------------------------------------------------
+  // SEARCH HANDLERS
+  // --------------------------------------------------
   onSearchChange() {
     this.applyFilters();
   }
 
-  //
-  // LOCATION HANDLER
-  //
   onLocationChange() {
     this.applyFilters();
   }
 
-  //
-  // CLEAN FILTER LOGIC
-  //
-  applyFilters() {
+  // --------------------------------------------------
+  // FILTER LOGIC
+  // --------------------------------------------------
+  applyFilters(updateUrl: boolean = true) {
     let list = [...this.masterBooks];
 
     const hasSearch = this.searchTerm.trim() !== '';
     const hasLocation = this.selectedLocation !== '';
 
-    // Search
     if (hasSearch) {
       const regex = new RegExp(this.searchTerm, 'i');
       list = list.filter(b =>
@@ -90,9 +101,21 @@ export class BookSearch {
       );
     }
 
-    // Location
     if (hasLocation) {
       list = list.filter(b => b.location === this.selectedLocation);
+    }
+
+    if (updateUrl) {
+      this.router.navigate([], {
+        relativeTo: this.route,
+        queryParams: {
+          search: this.searchTerm || null,
+          room: this.selectedLocation || null,
+          sort: this.sortColumn || null,
+          dir: this.sortDirection || null
+        },
+        queryParamsHandling: 'merge'
+      });
     }
 
     this.fullResults = list;
@@ -103,9 +126,9 @@ export class BookSearch {
     this.applyPaging();
   }
 
-  //
-  // RESET BUTTON LOGIC
-  //
+  // --------------------------------------------------
+  // RESET
+  // --------------------------------------------------
   resetFilters() {
     this.searchTerm = '';
     this.selectedLocation = '';
@@ -113,9 +136,9 @@ export class BookSearch {
     this.applyFilters();
   }
 
-  //
+  // --------------------------------------------------
   // SORTING
-  //
+  // --------------------------------------------------
   sortByDirection(column: SortableBookFields, direction: 'asc' | 'desc') {
     this.sortColumn = column;
     this.sortDirection = direction;
@@ -137,9 +160,10 @@ export class BookSearch {
       return 0;
     });
   }
-  //
+
+  // --------------------------------------------------
   // PAGING
-  //
+  // --------------------------------------------------
   applyPaging() {
     const start = this.currentPage * this.booksPerPage;
     const end = start + this.booksPerPage;
@@ -163,21 +187,21 @@ export class BookSearch {
     this.applyPaging();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-  //
-  // COUNTING
-  //
+
+  // --------------------------------------------------
+  // COUNT DISPLAY
+  // --------------------------------------------------
   get resultsCounter(): string {
-  if (this.fullResults.length === 0) {
-    return '0 of 0';
+    if (this.fullResults.length === 0) {
+      return '0 of 0';
+    }
+
+    const start = this.currentPage * this.booksPerPage + 1;
+    const end = Math.min(
+      start + this.pagedResults.length - 1,
+      this.fullResults.length
+    );
+
+    return `${start}-${end} of ${this.fullResults.length}`;
   }
-
-  const start = this.currentPage * this.booksPerPage + 1;
-  const end = Math.min(
-    start + this.pagedResults.length - 1,
-    this.fullResults.length
-  );
-
-  return `${start}-${end} of ${this.fullResults.length}`;
 }
-}
-

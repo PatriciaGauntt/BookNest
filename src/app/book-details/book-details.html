@@ -1,15 +1,23 @@
 @if (currentBook) {
 
 <div class="details-container">
-
-  <h3 class="pacifico-heading">
+  <div class="details-header">
+    <h3 class="pacifico-heading">
     <em>{{ currentBook.title }}</em> Details
     @if (currentBook.isPotentialDuplicate) {
       <span class="badge duplicate-badge ms-2">
         Familiar Feather - Compare Editions in Nest
       </span>
     }
-  </h3>
+    </h3>
+
+  <button
+    type="button"
+    class="btn btn-primary back-button"
+    (click)="backToSearch()">
+    ← Back to search results
+  </button>
+</div>
 
   <div class="book-details-container">
 
