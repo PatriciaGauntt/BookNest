@@ -31,7 +31,6 @@ export class BookEdit {
     'Bedroom 3',
   ];
 
-  // Popup modal
   showEditValidationModal = false;
 
   bookEditForm!: FormGroup;
@@ -74,4 +73,3 @@ export class BookEdit {
     this.showEditValidationModal = false;
   }
 }
-

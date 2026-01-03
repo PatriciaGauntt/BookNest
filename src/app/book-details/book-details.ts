@@ -22,6 +22,7 @@ export class BookDetails {
   showDeleteSuccess = false;
 
   searchParams: any = {};
+  hasSearchContext = false;
 
   // Validation modal for comments
   showCommentValidationModal = false;
@@ -33,13 +34,21 @@ export class BookDetails {
 
   constructor() {
     this.bookId = this.route.snapshot.params['id'];
-    this.searchParams = { ...this.route.snapshot.queryParams };
+    this.route.queryParams.subscribe(params => {
+    this.searchParams = params;
+    this.hasSearchContext = Object.keys(params).length > 0;
+    });
+
     this.bookService.getBookById(this.bookId).then((book) => {
       this.currentBook = book;
     });
   }
   backToSearch() {
-    window.history.back();
+    if (!this.hasSearchContext) return;
+
+    this.router.navigate(['/books/search'], {
+      queryParams: this.searchParams
+    });
   }
 
   async submitComment() {

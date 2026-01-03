@@ -19,11 +19,6 @@
   font-weight: bold;
   font-style: italic;
 }
-.button-row {
-  display: flex;
-  justify-content: center;
-  margin-top: 5px;
-}
 .book-overview h1 {
   text-align: center;
 }
