@@ -151,9 +151,14 @@ export class BookSearch implements OnInit {
 
     const col = this.sortColumn;
 
+    const normalize = (value: unknown): string => {
+      const v = (value ?? '').toString().trim().toLowerCase();
+      return v === 'na' || v === 'n/a' ? '' : v;
+    };
+
     this.fullResults.sort((a, b) => {
-      const valA = (a[col] || '').toString().toLowerCase();
-      const valB = (b[col] || '').toString().toLowerCase();
+      const valA = normalize(a[col]);
+      const valB = normalize(b[col]);
 
       if (valA < valB) return this.sortDirection === 'asc' ? -1 : 1;
       if (valA > valB) return this.sortDirection === 'asc' ? 1 : -1;

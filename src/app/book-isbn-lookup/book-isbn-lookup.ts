@@ -43,10 +43,10 @@ export class BookIsbnLookup {
   bookForm = new FormGroup({
     isbn: new FormControl('', Validators.required),
     title: new FormControl('', Validators.required),
-    author_first_name: new FormControl(''),
+    author_first_name: new FormControl('', Validators.required),
     author_last_name: new FormControl('', Validators.required),
     edition_note: new FormControl(''),
-    publication_year: new FormControl<number | null>(null),
+    publication_year: new FormControl<number | null>(2011),
     series_name: new FormControl(''),
     location: new FormControl('', Validators.required),
     bookcase: new FormControl(0),
