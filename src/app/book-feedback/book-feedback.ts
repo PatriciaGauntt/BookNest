@@ -21,7 +21,6 @@ export class BookFeedback {
   showModal = false;
   newType = '';
   newMessage = '';
-
   constructor() {
     this.feedbackService.getFeedback()
       .then((result) => {
