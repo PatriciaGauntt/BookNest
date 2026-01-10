@@ -159,6 +159,16 @@ table.table.table-striped > tbody > tr:hover > td {
   margin-left: 20px;
   font-style: italic;
 }
+.required-label {
+  color: #b02a37;
+  font-weight: 600;
+}
+.required-note {
+  font-size: 0.8rem;
+  color: #b02a37;
+  margin-left: 20px;
+  font-style: italic;
+}
 .pacifico-heading {
   font-family: "Pacifico", cursive;
   font-weight: 200;
