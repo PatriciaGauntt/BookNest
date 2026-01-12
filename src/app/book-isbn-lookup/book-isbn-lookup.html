@@ -125,6 +125,30 @@
       </form>
   }
       <span class="required-note">* required</span>
+      <!-- ISBN FORMAT VALIDATION MODAL -->
+      <div class="modal-backdrop" *ngIf="showIsbnFormatModal">
+        <div class="delete-modal">
+
+          <h3 class="pacifico-heading">Invalid ISBN Format</h3>
+
+          <p class="modal-message">
+          Please enter a valid ISBN-10 or ISBN-13 number.
+          <br />
+          Hyphens and spaces are allowed.
+          </p>
+
+        <div class="modal-buttons">
+          <button
+            type="button"
+            class="btn btn-details"
+            (click)="closeIsbnFormatModal()">
+            OK
+          </button>
+        </div>
+
+  </div>
+</div>
+
       @if (showValidationModal) {
         <div class="modal-backdrop"></div>
 

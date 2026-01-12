@@ -37,6 +37,13 @@ export class BookSearch implements OnInit {
 
   isSearching = false;
 
+  normalizeSearch(value: unknown): string {
+  return (value ?? '')
+    .toString()
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, ''); // remove spaces & special chars
+}
+
   sortColumn: SortableBookFields | '' = '';
   sortDirection: 'asc' | 'desc' = 'asc';
 
@@ -91,15 +98,18 @@ export class BookSearch implements OnInit {
     const hasSearch = this.searchTerm.trim() !== '';
     const hasLocation = this.selectedLocation !== '';
 
-    if (hasSearch) {
-      const regex = new RegExp(this.searchTerm, 'i');
-      list = list.filter(b =>
-        regex.test(b.title || '') ||
-        regex.test(b.author_last_name || '') ||
-        regex.test(b.author_first_name || '') ||
-        regex.test(b.series_name || '')
+  if (hasSearch) {
+    const search = this.normalizeSearch(this.searchTerm);
+
+    list = list.filter(b => {
+      return (
+        this.normalizeSearch(b.title).includes(search) ||
+        this.normalizeSearch(b.author_last_name).includes(search) ||
+        this.normalizeSearch(b.author_first_name).includes(search) ||
+        this.normalizeSearch(b.series_name).includes(search)
       );
-    }
+    });
+  }
 
     if (hasLocation) {
       list = list.filter(b => b.location === this.selectedLocation);
